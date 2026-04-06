@@ -1,95 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="google-site-verification" content="google3421370e0ac426ef" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ToolCraft — Free Browser Tools</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --bg:#f5f0e8;--surface:#faf7f2;--ink:#1a1612;--ink-soft:#5a4e42;
-      --accent:#c0392b;--border:#d4c9b8;--shadow:rgba(26,22,18,.08);
-      --green:#1a7a4a;
-    }
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh}
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:150px;pointer-events:none;z-index:9999;opacity:.5}
+<meta charset="UTF-8"/>
+<meta name="google-site-verification" content="B7Cp20lgpIT8zHr6AgA1UmA8yQLJ6zWXEuzPfnXH7vA"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="ToolCraft — 33 free browser tools. Word counter, password generator, QR code, BMI, unit converter, currency converter, loan calculator and more. No sign-up, no data collected."/>
+<title>ToolCraft — 33 Free Browser Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f5f0e8;--surface:#faf7f2;--ink:#1a1612;--ink-soft:#5a4e42;--accent:#c0392b;--border:#d4c9b8;--shadow:rgba(26,22,18,.08);--green:#1a7a4a}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:150px;pointer-events:none;z-index:9999;opacity:.5}
 
-    header{padding:2rem 3rem 0;display:flex;align-items:center;justify-content:space-between;animation:fadeDown .6s ease both}
-    .logo{display:flex;flex-direction:column;line-height:1}
-    .logo-name{font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;letter-spacing:-.5px}
-    .logo-tag{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:2px}
-    .header-count{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--border);padding:.4rem .9rem;border-radius:2px}
+header{padding:2rem 3rem 0;display:flex;align-items:center;justify-content:space-between;animation:fadeDown .6s ease both}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo-name{font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;letter-spacing:-.5px}
+.logo-tag{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.header-count{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--border);padding:.4rem .9rem;border-radius:2px}
 
-    .hero{padding:4rem 3rem 2.5rem;animation:fadeDown .7s .1s ease both}
-    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-2px;max-width:700px}
-    .hero h1 em{font-style:italic;color:var(--accent)}
-    .hero p{margin-top:1.2rem;font-size:1rem;color:var(--ink-soft);max-width:440px;line-height:1.7}
+.hero{padding:3rem 3rem 1.5rem;animation:fadeDown .7s .1s ease both}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:900;line-height:1.05;letter-spacing:-2px;max-width:700px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{margin-top:1rem;font-size:.95rem;color:var(--ink-soft);max-width:440px;line-height:1.7}
 
-    .ad-slot{margin:0 3rem 2rem;background:var(--surface);border:1px dashed var(--border);border-radius:4px;height:90px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;animation:fadeUp .8s .2s ease both}
+/* SEARCH */
+.search-wrap{padding:0 3rem 1.5rem;animation:fadeDown .7s .12s ease both}
+.search-box{position:relative;max-width:520px}
+.search-box input{width:100%;background:var(--surface);border:2px solid var(--border);border-radius:6px;padding:.85rem 1rem .85rem 3rem;font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
+.search-box input:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(26,22,18,.08)}
+.search-box input::placeholder{color:var(--ink-soft)}
+.search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--ink-soft);pointer-events:none;font-size:1rem}
+.search-count{font-size:.78rem;color:var(--ink-soft);margin-top:.5rem;letter-spacing:.05em}
+.no-results{display:none;padding:3rem;text-align:center;color:var(--ink-soft);font-size:.95rem;grid-column:1/-1}
 
-    .nav-tabs{display:flex;gap:.4rem;padding:0 3rem 1.5rem;flex-wrap:wrap;animation:fadeDown .7s .15s ease both}
-    .nav-tab{padding:.45rem 1rem;border:1px solid var(--border);border-radius:2px;background:transparent;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:var(--ink-soft);transition:all .2s}
-    .nav-tab:hover,.nav-tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ad-slot{margin:0 3rem 1.5rem;background:var(--surface);border:1px dashed var(--border);border-radius:4px;height:90px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
 
-    .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;padding:0 3rem 4rem;animation:fadeUp .8s .25s ease both}
-    .tool-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow .25s,transform .25s;display:none;flex-direction:column}
-    .tool-card.active{display:flex}
-    .tool-card:hover{box-shadow:0 8px 32px var(--shadow);transform:translateY(-2px)}
+.nav-tabs{display:flex;gap:.4rem;padding:0 3rem 1.5rem;flex-wrap:wrap;animation:fadeDown .7s .15s ease both}
+.nav-tab{padding:.4rem .9rem;border:1px solid var(--border);border-radius:2px;background:transparent;font-family:'DM Sans',sans-serif;font-size:.73rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;color:var(--ink-soft);transition:all .2s}
+.nav-tab:hover,.nav-tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
-    .card-header{padding:1.4rem 1.6rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.9rem}
-    .card-icon{width:36px;height:36px;background:var(--ink);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--bg);font-size:.9rem;flex-shrink:0}
-    .card-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
-    .card-subtitle{font-size:.75rem;color:var(--ink-soft);margin-top:1px}
-    .card-body{padding:1.4rem 1.6rem;flex:1}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;padding:0 3rem 4rem;animation:fadeUp .8s .25s ease both}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow .25s,transform .25s;display:none;flex-direction:column}
+.tool-card.active{display:flex}
+.tool-card:hover{box-shadow:0 8px 32px var(--shadow);transform:translateY(-2px)}
 
-    textarea,input[type=text],input[type=number],input[type=date],select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s;resize:vertical}
-    textarea:focus,input:focus,select:focus{border-color:var(--ink)}
+.card-header{padding:1.2rem 1.4rem .8rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.8rem}
+.card-icon{width:34px;height:34px;background:var(--ink);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--bg);font-size:.85rem;flex-shrink:0}
+.card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
+.card-subtitle{font-size:.71rem;color:var(--ink-soft);margin-top:1px}
+.card-body{padding:1.2rem 1.4rem;flex:1}
 
-    .btn{display:inline-flex;align-items:center;gap:.4rem;margin-top:.85rem;padding:.65rem 1.3rem;background:var(--ink);color:var(--bg);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .1s}
-    .btn:hover{background:var(--accent)}
-    .btn:active{transform:scale(.98)}
-    .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
-    .btn-ghost:hover{background:var(--bg);border-color:var(--ink)}
-    .btn-row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
-
-    .result-box{margin-top:1rem;padding:.9rem 1rem;background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;font-size:.9rem;line-height:1.6;white-space:pre-wrap;word-break:break-all}
-    .result-box.hidden{display:none}
-
-    .stat-row{display:flex;gap:.75rem;margin-top:.75rem;flex-wrap:wrap}
-    .stat-chip{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.4rem .8rem;font-size:.78rem;font-weight:500}
-    .stat-chip span{font-weight:300;color:var(--ink-soft);margin-right:.3rem}
-
-    .input-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
-    .input-label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.3rem;display:block;margin-top:.6rem}
-
-    .divider{height:1px;background:var(--border);margin:0 3rem 2rem}
-    .copied{color:var(--green);font-size:.75rem;margin-left:.4rem;opacity:0;transition:opacity .3s}
-    .copied.show{opacity:1}
-
-    .strength-bar{height:4px;border-radius:2px;background:var(--border);margin-top:.6rem;overflow:hidden}
-    .strength-fill{height:100%;border-radius:2px;transition:width .3s,background .3s}
-
-    .color-swatch{width:100%;height:80px;border-radius:4px;border:1px solid var(--border);margin-bottom:.75rem}
-    .color-codes{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.5rem}
-    .color-code-box{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.5rem .75rem;font-size:.8rem;font-family:monospace;cursor:pointer;transition:border-color .2s;position:relative}
-    .color-code-box:hover{border-color:var(--ink)}
-    .code-label{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
-
-    footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--ink-soft);letter-spacing:.05em}
-
-    @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-    @media(max-width:640px){
-      header,.hero,.tool-grid,.nav-tabs,.ad-slot,.divider,footer{padding-left:1.2rem;padding-right:1.2rem}
-      .tool-grid{grid-template-columns:1fr}
-      .input-row{grid-template-columns:1fr}
-      .color-codes{grid-template-columns:1fr}
-    }
-  </style>
+textarea,input[type=text],input[type=number],input[type=date],input[type=email],select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.68rem .9rem;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;resize:vertical}
+textarea:focus,input:focus,select:focus{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;margin-top:.75rem;padding:.58rem 1.1rem;background:var(--ink);color:var(--bg);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .1s}
+.btn:hover{background:var(--accent)}
+.btn:active{transform:scale(.98)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
+.btn-ghost:hover{background:var(--bg);border-color:var(--ink)}
+.btn-row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.result-box{margin-top:.8rem;padding:.8rem .9rem;background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;font-size:.87rem;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+.result-box.hidden{display:none}
+.stat-row{display:flex;gap:.6rem;margin-top:.7rem;flex-wrap:wrap}
+.stat-chip{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.35rem .7rem;font-size:.75rem;font-weight:500}
+.stat-chip span{font-weight:300;color:var(--ink-soft);margin-right:.25rem}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
+.input-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.25rem;display:block;margin-top:.55rem}
+.divider{height:1px;background:var(--border);margin:0 3rem 1.5rem}
+.copied{color:var(--green);font-size:.73rem;margin-left:.4rem;opacity:0;transition:opacity .3s}
+.copied.show{opacity:1}
+.strength-bar{height:4px;border-radius:2px;background:var(--border);margin-top:.5rem;overflow:hidden}
+.strength-fill{height:100%;border-radius:2px;transition:width .3s,background .3s}
+.color-swatch{width:100%;height:70px;border-radius:4px;border:1px solid var(--border);margin-bottom:.7rem}
+.color-codes{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.4rem}
+.color-code-box{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.4rem .65rem;font-size:.76rem;font-family:monospace;cursor:pointer;transition:border-color .2s;position:relative}
+.color-code-box:hover{border-color:var(--ink)}
+.code-label{font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
+footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:.73rem;color:var(--ink-soft);letter-spacing:.05em}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){
+  header,.hero,.tool-grid,.nav-tabs,.ad-slot,.search-wrap,.divider,footer{padding-left:1.2rem;padding-right:1.2rem}
+  .tool-grid{grid-template-columns:1fr}
+  .input-row{grid-template-columns:1fr}
+  .color-codes{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
@@ -98,7 +95,7 @@
     <span class="logo-name">ToolCraft</span>
     <span class="logo-tag">Free Browser Tools</span>
   </div>
-  <div class="header-count">13 Tools &middot; No Sign-up</div>
+  <div class="header-count" id="tool-count">33 Tools &middot; No Sign-up</div>
 </header>
 
 <div class="hero">
@@ -106,42 +103,42 @@
   <p>Fast, free and private — everything runs in your browser. No accounts, no uploads, no nonsense.</p>
 </div>
 
-<div class="ad-slot"><!-- Google AdSense 728x90 — replace with your ad tag --> Advertisement &middot; 728&times;90</div>
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="search-input" placeholder="Search tools — try &quot;password&quot; or &quot;convert&quot;..." oninput="doSearch()"/>
+  </div>
+  <div class="search-count" id="search-count"></div>
+</div>
+
+<div class="ad-slot"><!-- Google AdSense 728x90 --> Advertisement &middot; 728&times;90</div>
 <div class="divider"></div>
 <div class="nav-tabs" id="tabs"></div>
 
 <div class="tool-grid" id="grid">
+  <div class="no-results" id="no-results">No tools found for your search. Try a different keyword.</div>
 
   <!-- 1. WORD COUNTER -->
-  <div class="tool-card active" data-tool="text">
-    <div class="card-header">
-      <div class="card-icon">¶</div>
-      <div><div class="card-title">Word Counter</div><div class="card-subtitle">Words, chars, sentences &amp; reading time</div></div>
-    </div>
+  <div class="tool-card active" data-tool="text" data-keywords="word counter words characters sentences paragraphs reading time text">
+    <div class="card-header"><div class="card-icon">&#182;</div><div><div class="card-title">Word Counter</div><div class="card-subtitle">Words, chars, sentences &amp; reading time</div></div></div>
     <div class="card-body">
-      <textarea id="wc-input" rows="6" placeholder="Paste or type your text here…" oninput="countWords()"></textarea>
+      <textarea id="wc-input" rows="5" placeholder="Paste or type your text here…" oninput="countWords()"></textarea>
       <div class="stat-row">
         <div class="stat-chip"><span>Words</span><strong id="wc-w">0</strong></div>
         <div class="stat-chip"><span>Chars</span><strong id="wc-c">0</strong></div>
         <div class="stat-chip"><span>Sentences</span><strong id="wc-s">0</strong></div>
-        <div class="stat-chip"><span>Read</span><strong id="wc-r">0 sec</strong></div>
+        <div class="stat-chip"><span>Read</span><strong id="wc-r">0s</strong></div>
         <div class="stat-chip"><span>Paragraphs</span><strong id="wc-p">0</strong></div>
       </div>
     </div>
   </div>
 
-  <!-- 2. PERCENTAGE CALC -->
-  <div class="tool-card active" data-tool="math">
-    <div class="card-header">
-      <div class="card-icon">%</div>
-      <div><div class="card-title">Percentage Calc</div><div class="card-subtitle">Three modes in one</div></div>
-    </div>
+  <!-- 2. PERCENTAGE -->
+  <div class="tool-card active" data-tool="math" data-keywords="percentage percent calculate of change math">
+    <div class="card-header"><div class="card-icon">%</div><div><div class="card-title">Percentage Calc</div><div class="card-subtitle">Three modes in one</div></div></div>
     <div class="card-body">
-      <select id="pct-mode" onchange="calcPct()">
-        <option value="of">What is X% of Y?</option>
-        <option value="is">X is what % of Y?</option>
-        <option value="change">% change from X to Y</option>
-      </select>
+      <select id="pct-mode" onchange="calcPct()"><option value="of">What is X% of Y?</option><option value="is">X is what % of Y?</option><option value="change">% change from X to Y</option></select>
       <div class="input-row">
         <div><label class="input-label" id="pct-lbl1">Percentage (X)</label><input type="number" id="pct-a" placeholder="e.g. 20" oninput="calcPct()"/></div>
         <div><label class="input-label" id="pct-lbl2">Number (Y)</label><input type="number" id="pct-b" placeholder="e.g. 150" oninput="calcPct()"/></div>
@@ -151,11 +148,8 @@
   </div>
 
   <!-- 3. AGE CALCULATOR -->
-  <div class="tool-card active" data-tool="time">
-    <div class="card-header">
-      <div class="card-icon">&#127874;</div>
-      <div><div class="card-title">Age Calculator</div><div class="card-subtitle">Years, months, days &amp; next birthday</div></div>
-    </div>
+  <div class="tool-card active" data-tool="time" data-keywords="age birthday calculator born years months days">
+    <div class="card-header"><div class="card-icon">&#127874;</div><div><div class="card-title">Age Calculator</div><div class="card-subtitle">Years, months, days &amp; next birthday</div></div></div>
     <div class="card-body">
       <label class="input-label">Date of Birth</label>
       <input type="date" id="age-dob" onchange="calcAge()"/>
@@ -164,39 +158,29 @@
   </div>
 
   <!-- 4. PASSWORD GENERATOR -->
-  <div class="tool-card active" data-tool="security">
-    <div class="card-header">
-      <div class="card-icon">&#128273;</div>
-      <div><div class="card-title">Password Generator</div><div class="card-subtitle">Cryptographically secure &amp; strong</div></div>
-    </div>
+  <div class="tool-card active" data-tool="security" data-keywords="password generator random secure strong key">
+    <div class="card-header"><div class="card-icon">&#128273;</div><div><div class="card-title">Password Generator</div><div class="card-subtitle">Cryptographically secure &amp; strong</div></div></div>
     <div class="card-body">
       <label class="input-label">Length: <strong id="pw-len-display">16</strong></label>
-      <input type="range" id="pw-len" min="8" max="64" value="16" oninput="document.getElementById('pw-len-display').textContent=this.value;genPw()" style="width:100%;accent-color:var(--ink);margin-bottom:.75rem"/>
-      <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:.8rem">
-        <label style="font-size:.82rem;display:flex;gap:.35rem;align-items:center;cursor:pointer"><input type="checkbox" id="pw-upper" checked onchange="genPw()"> Uppercase</label>
-        <label style="font-size:.82rem;display:flex;gap:.35rem;align-items:center;cursor:pointer"><input type="checkbox" id="pw-lower" checked onchange="genPw()"> Lowercase</label>
-        <label style="font-size:.82rem;display:flex;gap:.35rem;align-items:center;cursor:pointer"><input type="checkbox" id="pw-num" checked onchange="genPw()"> Numbers</label>
-        <label style="font-size:.82rem;display:flex;gap:.35rem;align-items:center;cursor:pointer"><input type="checkbox" id="pw-sym" checked onchange="genPw()"> Symbols</label>
+      <input type="range" id="pw-len" min="8" max="64" value="16" oninput="document.getElementById('pw-len-display').textContent=this.value;genPw()" style="width:100%;accent-color:var(--ink);margin-bottom:.7rem"/>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.7rem">
+        <label style="font-size:.8rem;display:flex;gap:.3rem;align-items:center;cursor:pointer"><input type="checkbox" id="pw-upper" checked onchange="genPw()"> Uppercase</label>
+        <label style="font-size:.8rem;display:flex;gap:.3rem;align-items:center;cursor:pointer"><input type="checkbox" id="pw-lower" checked onchange="genPw()"> Lowercase</label>
+        <label style="font-size:.8rem;display:flex;gap:.3rem;align-items:center;cursor:pointer"><input type="checkbox" id="pw-num" checked onchange="genPw()"> Numbers</label>
+        <label style="font-size:.8rem;display:flex;gap:.3rem;align-items:center;cursor:pointer"><input type="checkbox" id="pw-sym" checked onchange="genPw()"> Symbols</label>
       </div>
       <div class="result-box" id="pw-result" style="font-family:monospace;letter-spacing:.05em"></div>
       <div class="strength-bar"><div class="strength-fill" id="pw-sf" style="width:0%"></div></div>
-      <div class="btn-row">
-        <button class="btn" onclick="genPw()">&#8635; Regenerate</button>
-        <button class="btn btn-ghost" onclick="copyEl('pw-result','pw-copied')">Copy</button>
-        <span class="copied" id="pw-copied">Copied!</span>
-      </div>
+      <div class="btn-row"><button class="btn" onclick="genPw()">&#8635; Regenerate</button><button class="btn btn-ghost" onclick="copyEl('pw-result','pw-copied')">Copy</button><span class="copied" id="pw-copied">Copied!</span></div>
     </div>
   </div>
 
-  <!-- 5. TEXT CASE CONVERTER -->
-  <div class="tool-card active" data-tool="text">
-    <div class="card-header">
-      <div class="card-icon">Aa</div>
-      <div><div class="card-title">Text Case Converter</div><div class="card-subtitle">UPPER, lower, Title, camelCase &amp; more</div></div>
-    </div>
+  <!-- 5. TEXT CASE -->
+  <div class="tool-card active" data-tool="text" data-keywords="text case upper lower title camel snake kebab convert">
+    <div class="card-header"><div class="card-icon">Aa</div><div><div class="card-title">Text Case Converter</div><div class="card-subtitle">UPPER, lower, Title, camelCase &amp; more</div></div></div>
     <div class="card-body">
-      <textarea id="tc-input" rows="4" placeholder="Type your text here…"></textarea>
-      <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.75rem">
+      <textarea id="tc-input" rows="3" placeholder="Type your text here…"></textarea>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem">
         <button class="btn btn-ghost" style="margin-top:0" onclick="convertCase('upper')">UPPER</button>
         <button class="btn btn-ghost" style="margin-top:0" onclick="convertCase('lower')">lower</button>
         <button class="btn btn-ghost" style="margin-top:0" onclick="convertCase('title')">Title</button>
@@ -206,19 +190,13 @@
         <button class="btn btn-ghost" style="margin-top:0" onclick="convertCase('kebab')">kebab-case</button>
       </div>
       <div class="result-box hidden" id="tc-result"></div>
-      <div id="tc-actions" style="display:none" class="btn-row">
-        <button class="btn btn-ghost" onclick="copyEl('tc-result','tc-copied')">Copy Result</button>
-        <span class="copied" id="tc-copied">Copied!</span>
-      </div>
+      <div id="tc-actions" style="display:none" class="btn-row"><button class="btn btn-ghost" onclick="copyEl('tc-result','tc-copied')">Copy</button><span class="copied" id="tc-copied">Copied!</span></div>
     </div>
   </div>
 
-  <!-- 6. BMI CALCULATOR -->
-  <div class="tool-card active" data-tool="health">
-    <div class="card-header">
-      <div class="card-icon">&#9878;</div>
-      <div><div class="card-title">BMI Calculator</div><div class="card-subtitle">Body Mass Index with health category</div></div>
-    </div>
+  <!-- 6. BMI -->
+  <div class="tool-card active" data-tool="health" data-keywords="bmi body mass index weight height health calculator">
+    <div class="card-header"><div class="card-icon">&#9878;</div><div><div class="card-title">BMI Calculator</div><div class="card-subtitle">Body Mass Index with health category</div></div></div>
     <div class="card-body">
       <div class="input-row">
         <div><label class="input-label">Weight (kg)</label><input type="number" id="bmi-w" placeholder="70" oninput="calcBmi()"/></div>
@@ -229,68 +207,51 @@
   </div>
 
   <!-- 7. UNIT CONVERTER -->
-  <div class="tool-card active" data-tool="math">
-    <div class="card-header">
-      <div class="card-icon">&#8644;</div>
-      <div><div class="card-title">Unit Converter</div><div class="card-subtitle">Length, weight, temp, speed, area &amp; volume</div></div>
-    </div>
+  <div class="tool-card active" data-tool="math" data-keywords="unit converter length weight temperature speed area volume convert metric imperial">
+    <div class="card-header"><div class="card-icon">&#8644;</div><div><div class="card-title">Unit Converter</div><div class="card-subtitle">Length, weight, temp, speed, area &amp; volume</div></div></div>
     <div class="card-body">
-      <select id="uc-type" onchange="setupUnit()" style="margin-bottom:.75rem">
-        <option value="length">Length</option>
-        <option value="weight">Weight</option>
-        <option value="temp">Temperature</option>
-        <option value="speed">Speed</option>
-        <option value="area">Area</option>
-        <option value="volume">Volume</option>
+      <select id="uc-type" onchange="setupUnit()" style="margin-bottom:.7rem">
+        <option value="length">Length</option><option value="weight">Weight</option><option value="temp">Temperature</option><option value="speed">Speed</option><option value="area">Area</option><option value="volume">Volume</option>
       </select>
       <div class="input-row">
         <div><label class="input-label">From</label><select id="uc-from" onchange="convertUnit()"></select></div>
         <div><label class="input-label">To</label><select id="uc-to" onchange="convertUnit()"></select></div>
       </div>
-      <input type="number" id="uc-val" placeholder="Enter value…" oninput="convertUnit()" style="margin-top:.75rem"/>
+      <input type="number" id="uc-val" placeholder="Enter value…" oninput="convertUnit()" style="margin-top:.7rem"/>
       <div class="result-box hidden" id="uc-result"></div>
     </div>
   </div>
 
   <!-- 8. TIP CALCULATOR -->
-  <div class="tool-card active" data-tool="math">
-    <div class="card-header">
-      <div class="card-icon">&#127869;</div>
-      <div><div class="card-title">Tip Calculator</div><div class="card-subtitle">Split the bill effortlessly</div></div>
-    </div>
+  <div class="tool-card active" data-tool="math" data-keywords="tip calculator bill split restaurant gratuity">
+    <div class="card-header"><div class="card-icon">&#127869;</div><div><div class="card-title">Tip Calculator</div><div class="card-subtitle">Split the bill effortlessly</div></div></div>
     <div class="card-body">
       <label class="input-label">Bill Amount ($)</label>
       <input type="number" id="tip-bill" placeholder="e.g. 85.00" oninput="calcTip()"/>
       <label class="input-label">Tip: <strong id="tip-pct-display">15</strong>%</label>
       <input type="range" id="tip-pct" min="0" max="30" value="15" oninput="document.getElementById('tip-pct-display').textContent=this.value;calcTip()" style="width:100%;accent-color:var(--ink)"/>
       <label class="input-label">Split between</label>
-      <input type="number" id="tip-split" value="1" min="1" max="20" oninput="calcTip()"/>
+      <input type="number" id="tip-split" value="1" min="1" oninput="calcTip()"/>
       <div class="result-box hidden" id="tip-result"></div>
     </div>
   </div>
 
   <!-- 9. COLOUR CONVERTER -->
-  <div class="tool-card active" data-tool="design">
-    <div class="card-header">
-      <div class="card-icon" style="font-size:.75rem">RGB</div>
-      <div><div class="card-title">Colour Converter</div><div class="card-subtitle">HEX &harr; RGB &harr; HSL — click any code to copy</div></div>
-    </div>
+  <div class="tool-card active" data-tool="design" data-keywords="colour color hex rgb hsl picker converter design">
+    <div class="card-header"><div class="card-icon" style="font-size:.72rem">RGB</div><div><div class="card-title">Colour Converter</div><div class="card-subtitle">HEX &harr; RGB &harr; HSL — click to copy</div></div></div>
     <div class="card-body">
       <div class="color-swatch" id="color-swatch" style="background:#3b82f6"></div>
-      <div style="display:flex;gap:.75rem;align-items:center">
-        <input type="color" id="color-picker" value="#3b82f6" oninput="updateColor(this.value)" style="width:48px;height:40px;padding:2px;border-radius:4px;border:1px solid var(--border);background:var(--bg);cursor:pointer;flex-shrink:0"/>
+      <div style="display:flex;gap:.7rem;align-items:center">
+        <input type="color" id="color-picker" value="#3b82f6" oninput="updateColor(this.value)" style="width:44px;height:38px;padding:2px;border-radius:4px;border:1px solid var(--border);background:var(--bg);cursor:pointer;flex-shrink:0"/>
         <input type="text" id="color-hex-in" value="#3b82f6" placeholder="#rrggbb" oninput="tryHexInput(this.value)" style="font-family:monospace"/>
       </div>
       <div class="color-codes" id="color-codes"></div>
     </div>
   </div>
 
-  <!-- 10. LOAN / EMI CALCULATOR -->
-  <div class="tool-card active" data-tool="finance">
-    <div class="card-header">
-      <div class="card-icon" style="font-size:.72rem;letter-spacing:-.5px">EMI</div>
-      <div><div class="card-title">Loan Calculator</div><div class="card-subtitle">Monthly EMI, total interest &amp; schedule</div></div>
-    </div>
+  <!-- 10. LOAN CALCULATOR -->
+  <div class="tool-card active" data-tool="finance" data-keywords="loan emi calculator mortgage interest monthly payment finance">
+    <div class="card-header"><div class="card-icon" style="font-size:.68rem">EMI</div><div><div class="card-title">Loan Calculator</div><div class="card-subtitle">Monthly EMI &amp; total interest</div></div></div>
     <div class="card-body">
       <label class="input-label">Loan Amount</label>
       <input type="number" id="loan-amt" placeholder="e.g. 10000" oninput="calcLoan()"/>
@@ -302,48 +263,31 @@
     </div>
   </div>
 
-  <!-- 11. QR CODE GENERATOR -->
-  <div class="tool-card active" data-tool="design">
-    <div class="card-header">
-      <div class="card-icon" style="font-size:.72rem">QR</div>
-      <div><div class="card-title">QR Code Generator</div><div class="card-subtitle">Instant QR for any URL or text</div></div>
-    </div>
+  <!-- 11. QR CODE -->
+  <div class="tool-card active" data-tool="design" data-keywords="qr code generator qrcode url link barcode">
+    <div class="card-header"><div class="card-icon" style="font-size:.7rem">QR</div><div><div class="card-title">QR Code Generator</div><div class="card-subtitle">Instant QR for any URL or text</div></div></div>
     <div class="card-body">
       <label class="input-label">URL or Text</label>
       <input type="text" id="qr-input" placeholder="https://example.com" oninput="genQR()"/>
-      <div id="qr-output" style="display:none;margin-top:1rem;text-align:center">
-        <img id="qr-img" src="" alt="QR Code" style="width:180px;height:180px;border:1px solid var(--border);border-radius:4px;padding:8px;background:#fff"/>
-        <div class="btn-row" style="justify-content:center">
-          <a id="qr-dl" class="btn" style="text-decoration:none;margin-top:.75rem" download="qrcode.png">&#8595; Download PNG</a>
-        </div>
+      <div id="qr-output" style="display:none;margin-top:.8rem;text-align:center">
+        <img id="qr-img" src="" alt="QR Code" style="width:160px;height:160px;border:1px solid var(--border);border-radius:4px;padding:6px;background:#fff"/>
+        <div class="btn-row" style="justify-content:center"><a id="qr-dl" class="btn" style="text-decoration:none;margin-top:.7rem" download="qrcode.png">&#8595; Download</a></div>
       </div>
     </div>
   </div>
 
   <!-- 12. RANDOM PICKER -->
-  <div class="tool-card active" data-tool="fun">
-    <div class="card-header">
-      <div class="card-icon">&#127922;</div>
-      <div><div class="card-title">Random Picker</div><div class="card-subtitle">Pick names from a list or random numbers</div></div>
-    </div>
+  <div class="tool-card active" data-tool="fun" data-keywords="random picker name list number generate lottery">
+    <div class="card-header"><div class="card-icon">&#127922;</div><div><div class="card-title">Random Picker</div><div class="card-subtitle">Pick names or generate random numbers</div></div></div>
     <div class="card-body">
-      <select id="rand-mode" onchange="toggleRandMode()" style="margin-bottom:.75rem">
-        <option value="names">Pick from a list</option>
-        <option value="number">Random number</option>
-      </select>
+      <select id="rand-mode" onchange="toggleRandMode()" style="margin-bottom:.7rem"><option value="names">Pick from a list</option><option value="number">Random number</option></select>
       <div id="rand-names-section">
         <label class="input-label">Names (one per line)</label>
-        <textarea id="rand-names" rows="5" placeholder="Alice&#10;Bob&#10;Charlie&#10;Diana"></textarea>
-        <div class="btn-row">
-          <button class="btn" onclick="pickRandom()">&#127922; Pick One</button>
-          <button class="btn btn-ghost" onclick="pickMultiple()">Pick 3</button>
-        </div>
+        <textarea id="rand-names" rows="4" placeholder="Alice&#10;Bob&#10;Charlie&#10;Diana"></textarea>
+        <div class="btn-row"><button class="btn" onclick="pickRandom()">&#127922; Pick One</button><button class="btn btn-ghost" onclick="pickMultiple()">Pick 3</button></div>
       </div>
       <div id="rand-number-section" style="display:none">
-        <div class="input-row">
-          <div><label class="input-label">Min</label><input type="number" id="rand-min" value="1"/></div>
-          <div><label class="input-label">Max</label><input type="number" id="rand-max" value="100"/></div>
-        </div>
+        <div class="input-row"><div><label class="input-label">Min</label><input type="number" id="rand-min" value="1"/></div><div><label class="input-label">Max</label><input type="number" id="rand-max" value="100"/></div></div>
         <button class="btn" onclick="pickNumber()">Generate</button>
       </div>
       <div class="result-box hidden" id="rand-result"></div>
@@ -351,49 +295,368 @@
   </div>
 
   <!-- 13. STOPWATCH -->
-  <div class="tool-card active" data-tool="time">
-    <div class="card-header">
-      <div class="card-icon">&#9201;</div>
-      <div><div class="card-title">Stopwatch</div><div class="card-subtitle">Millisecond precision with lap tracking</div></div>
-    </div>
+  <div class="tool-card active" data-tool="time" data-keywords="stopwatch timer lap millisecond clock">
+    <div class="card-header"><div class="card-icon">&#9201;</div><div><div class="card-title">Stopwatch</div><div class="card-subtitle">Millisecond precision with lap tracking</div></div></div>
     <div class="card-body">
-      <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;text-align:center;letter-spacing:-1px;margin:.25rem 0" id="sw-display">00:00.000</div>
-      <div class="btn-row" style="justify-content:center;margin-top:.5rem">
+      <div style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;text-align:center;letter-spacing:-1px;margin:.2rem 0" id="sw-display">00:00.000</div>
+      <div class="btn-row" style="justify-content:center;margin-top:.4rem">
         <button class="btn" id="sw-start-btn" onclick="swToggle()">&#9654; Start</button>
         <button class="btn btn-ghost" onclick="swLap()" id="sw-lap-btn" disabled>Lap</button>
         <button class="btn btn-ghost" onclick="swReset()">Reset</button>
       </div>
-      <div id="sw-laps" style="margin-top:.75rem;max-height:120px;overflow-y:auto;font-size:.82rem"></div>
+      <div id="sw-laps" style="margin-top:.7rem;max-height:110px;overflow-y:auto;font-size:.8rem"></div>
     </div>
   </div>
 
-</div>
+  <!-- 14. COUNTDOWN TIMER -->
+  <div class="tool-card active" data-tool="time" data-keywords="countdown timer count down alarm hours minutes seconds">
+    <div class="card-header"><div class="card-icon">&#9719;</div><div><div class="card-title">Countdown Timer</div><div class="card-subtitle">Set a custom countdown with alert</div></div></div>
+    <div class="card-body">
+      <div class="input-row">
+        <div><label class="input-label">Hours</label><input type="number" id="cd-h" value="0" min="0" max="23"/></div>
+        <div><label class="input-label">Minutes</label><input type="number" id="cd-m" value="5" min="0" max="59"/></div>
+      </div>
+      <label class="input-label">Seconds</label>
+      <input type="number" id="cd-s" value="0" min="0" max="59"/>
+      <div style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;text-align:center;margin:.7rem 0" id="cd-display">00:05:00</div>
+      <div class="btn-row" style="justify-content:center">
+        <button class="btn" id="cd-start-btn" onclick="cdToggle()">&#9654; Start</button>
+        <button class="btn btn-ghost" onclick="cdReset()">Reset</button>
+      </div>
+    </div>
+  </div>
 
-<div class="ad-slot" style="margin-bottom:0"><!-- Google AdSense 728x90 — replace with your ad tag --> Advertisement &middot; 728&times;90</div>
+  <!-- 15. COMPOUND INTEREST -->
+  <div class="tool-card active" data-tool="finance" data-keywords="compound interest calculator investment savings growth finance money">
+    <div class="card-header"><div class="card-icon" style="font-size:.68rem">C+I</div><div><div class="card-title">Compound Interest</div><div class="card-subtitle">Calculate investment growth over time</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Principal Amount ($)</label>
+      <input type="number" id="ci-p" placeholder="e.g. 1000" oninput="calcCI()"/>
+      <div class="input-row">
+        <div><label class="input-label">Annual Rate (%)</label><input type="number" id="ci-r" placeholder="e.g. 7" oninput="calcCI()"/></div>
+        <div><label class="input-label">Years</label><input type="number" id="ci-t" placeholder="e.g. 10" oninput="calcCI()"/></div>
+      </div>
+      <label class="input-label">Compounded</label>
+      <select id="ci-n" onchange="calcCI()">
+        <option value="1">Annually</option><option value="4">Quarterly</option><option value="12" selected>Monthly</option><option value="365">Daily</option>
+      </select>
+      <div class="result-box hidden" id="ci-result"></div>
+    </div>
+  </div>
 
+  <!-- 16. GRADE / GPA CALCULATOR -->
+  <div class="tool-card active" data-tool="math" data-keywords="grade gpa calculator percentage marks score average student">
+    <div class="card-header"><div class="card-icon" style="font-size:.72rem">GPA</div><div><div class="card-title">Grade Calculator</div><div class="card-subtitle">Average grade &amp; GPA from marks</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Enter marks (one per line, out of 100)</label>
+      <textarea id="grade-input" rows="5" placeholder="85&#10;92&#10;78&#10;95&#10;67"></textarea>
+      <button class="btn" onclick="calcGrade()">Calculate</button>
+      <div class="result-box hidden" id="grade-result"></div>
+    </div>
+  </div>
+
+  <!-- 17. BINARY / HEX CONVERTER -->
+  <div class="tool-card active" data-tool="developer" data-keywords="binary decimal hexadecimal octal convert number base programmer">
+    <div class="card-header"><div class="card-icon" style="font-size:.68rem">BIN</div><div><div class="card-title">Number Base Converter</div><div class="card-subtitle">Binary, Decimal, Hex &amp; Octal</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Decimal</label>
+      <input type="text" id="nb-dec" placeholder="e.g. 255" oninput="convertBase('dec')"/>
+      <label class="input-label">Binary</label>
+      <input type="text" id="nb-bin" placeholder="e.g. 11111111" oninput="convertBase('bin')"/>
+      <label class="input-label">Hexadecimal</label>
+      <input type="text" id="nb-hex" placeholder="e.g. FF" oninput="convertBase('hex')"/>
+      <label class="input-label">Octal</label>
+      <input type="text" id="nb-oct" placeholder="e.g. 377" oninput="convertBase('oct')"/>
+    </div>
+  </div>
+
+  <!-- 18. BASE64 ENCODE/DECODE -->
+  <div class="tool-card active" data-tool="developer" data-keywords="base64 encode decode text developer programmer">
+    <div class="card-header"><div class="card-icon" style="font-size:.62rem">B64</div><div><div class="card-title">Base64 Encoder</div><div class="card-subtitle">Encode &amp; decode Base64 instantly</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Text / Base64</label>
+      <textarea id="b64-input" rows="3" placeholder="Enter text to encode or Base64 to decode…"></textarea>
+      <div class="btn-row">
+        <button class="btn" onclick="doBase64('encode')">Encode</button>
+        <button class="btn btn-ghost" onclick="doBase64('decode')">Decode</button>
+      </div>
+      <div class="result-box hidden" id="b64-result"></div>
+      <div id="b64-actions" style="display:none" class="btn-row"><button class="btn btn-ghost" onclick="copyEl('b64-result','b64-copied')">Copy</button><span class="copied" id="b64-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 19. JSON FORMATTER -->
+  <div class="tool-card active" data-tool="developer" data-keywords="json formatter validator beautify minify developer api">
+    <div class="card-header"><div class="card-icon" style="font-size:.68rem">{}</div><div><div class="card-title">JSON Formatter</div><div class="card-subtitle">Beautify, minify &amp; validate JSON</div></div></div>
+    <div class="card-body">
+      <textarea id="json-input" rows="5" placeholder='{"name":"John","age":30}'></textarea>
+      <div class="btn-row">
+        <button class="btn" onclick="formatJSON('pretty')">Beautify</button>
+        <button class="btn btn-ghost" onclick="formatJSON('minify')">Minify</button>
+        <button class="btn btn-ghost" onclick="formatJSON('validate')">Validate</button>
+      </div>
+      <div class="result-box hidden" id="json-result" style="font-family:monospace;font-size:.8rem"></div>
+    </div>
+  </div>
+
+  <!-- 20. TEXT REVERSER -->
+  <div class="tool-card active" data-tool="text" data-keywords="text reverse reverser flip mirror words letters">
+    <div class="card-header"><div class="card-icon" style="font-size:.8rem">&#8644;</div><div><div class="card-title">Text Reverser</div><div class="card-subtitle">Reverse text, words or check palindrome</div></div></div>
+    <div class="card-body">
+      <textarea id="rev-input" rows="3" placeholder="Type text to reverse…"></textarea>
+      <div class="btn-row" style="margin-top:.7rem">
+        <button class="btn" onclick="reverseText('chars')">Reverse Chars</button>
+        <button class="btn btn-ghost" onclick="reverseText('words')">Reverse Words</button>
+        <button class="btn btn-ghost" onclick="reverseText('palindrome')">Palindrome?</button>
+      </div>
+      <div class="result-box hidden" id="rev-result"></div>
+    </div>
+  </div>
+
+  <!-- 21. ROMAN NUMERALS -->
+  <div class="tool-card active" data-tool="math" data-keywords="roman numerals convert number I V X L C D M">
+    <div class="card-header"><div class="card-icon" style="font-size:.7rem">XIV</div><div><div class="card-title">Roman Numerals</div><div class="card-subtitle">Convert to and from Roman numerals</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Number (1–3999)</label>
+      <input type="number" id="rom-num" placeholder="e.g. 2024" oninput="toRoman()" min="1" max="3999"/>
+      <div class="result-box hidden" id="rom-result"></div>
+      <label class="input-label" style="margin-top:.8rem">Roman Numeral</label>
+      <input type="text" id="rom-in" placeholder="e.g. MMXXIV" oninput="fromRoman()" style="text-transform:uppercase"/>
+      <div class="result-box hidden" id="rom-result2"></div>
+    </div>
+  </div>
+
+  <!-- 22. CALORIE / TDEE CALCULATOR -->
+  <div class="tool-card active" data-tool="health" data-keywords="calorie tdee bmr calculator diet weight loss fitness health">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">kcal</div><div><div class="card-title">Calorie Calculator</div><div class="card-subtitle">Daily calorie needs (TDEE)</div></div></div>
+    <div class="card-body">
+      <div class="input-row">
+        <div><label class="input-label">Age</label><input type="number" id="cal-age" placeholder="25" oninput="calcCal()"/></div>
+        <div><label class="input-label">Gender</label><select id="cal-sex" onchange="calcCal()"><option value="m">Male</option><option value="f">Female</option></select></div>
+      </div>
+      <div class="input-row">
+        <div><label class="input-label">Weight (kg)</label><input type="number" id="cal-w" placeholder="70" oninput="calcCal()"/></div>
+        <div><label class="input-label">Height (cm)</label><input type="number" id="cal-h" placeholder="175" oninput="calcCal()"/></div>
+      </div>
+      <label class="input-label">Activity Level</label>
+      <select id="cal-act" onchange="calcCal()">
+        <option value="1.2">Sedentary (desk job)</option>
+        <option value="1.375">Light (1-3x/week)</option>
+        <option value="1.55" selected>Moderate (3-5x/week)</option>
+        <option value="1.725">Active (6-7x/week)</option>
+        <option value="1.9">Very active (athlete)</option>
+      </select>
+      <div class="result-box hidden" id="cal-result"></div>
+    </div>
+  </div>
+
+  <!-- 23. SLEEP CALCULATOR -->
+  <div class="tool-card active" data-tool="health" data-keywords="sleep calculator wake up time cycle rest bed">
+    <div class="card-header"><div class="card-icon">&#128564;</div><div><div class="card-title">Sleep Calculator</div><div class="card-subtitle">Best wake-up times based on sleep cycles</div></div></div>
+    <div class="card-body">
+      <label class="input-label">I want to wake up at</label>
+      <input type="text" id="sleep-wake" placeholder="e.g. 07:00" oninput="calcSleep()"/>
+      <div class="result-box hidden" id="sleep-result"></div>
+      <label class="input-label" style="margin-top:.8rem">Or I'm going to bed at</label>
+      <input type="text" id="sleep-bed" placeholder="e.g. 23:00" oninput="calcSleepFromBed()"/>
+      <div class="result-box hidden" id="sleep-result2"></div>
+    </div>
+  </div>
+
+  <!-- 24. ASPECT RATIO -->
+  <div class="tool-card active" data-tool="design" data-keywords="aspect ratio calculator image video resolution width height design">
+    <div class="card-header"><div class="card-icon" style="font-size:.68rem">16:9</div><div><div class="card-title">Aspect Ratio Calc</div><div class="card-subtitle">Calculate width or height from ratio</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Ratio (e.g. 16:9)</label>
+      <input type="text" id="ar-ratio" placeholder="16:9" oninput="calcAR()"/>
+      <div class="input-row">
+        <div><label class="input-label">Width (px)</label><input type="number" id="ar-w" placeholder="1920" oninput="calcARfromW()"/></div>
+        <div><label class="input-label">Height (px)</label><input type="number" id="ar-h" placeholder="1080" oninput="calcARfromH()"/></div>
+      </div>
+      <div class="result-box hidden" id="ar-result"></div>
+    </div>
+  </div>
+
+  <!-- 25. CURRENCY CONVERTER (static rates) -->
+  <div class="tool-card active" data-tool="finance" data-keywords="currency converter exchange rate usd eur gbp dollar pound euro forex">
+    <div class="card-header"><div class="card-icon" style="font-size:.72rem">FX</div><div><div class="card-title">Currency Converter</div><div class="card-subtitle">Major currencies (approximate rates)</div></div></div>
+    <div class="card-body">
+      <input type="number" id="fx-amount" placeholder="Enter amount" oninput="convertFX()" style="margin-bottom:.6rem"/>
+      <div class="input-row">
+        <div><label class="input-label">From</label><select id="fx-from" onchange="convertFX()"></select></div>
+        <div><label class="input-label">To</label><select id="fx-to" onchange="convertFX()"></select></div>
+      </div>
+      <button class="btn btn-ghost" style="margin-top:.6rem" onclick="swapFX()">&#8644; Swap</button>
+      <div class="result-box hidden" id="fx-result"></div>
+      <div style="font-size:.68rem;color:var(--ink-soft);margin-top:.4rem">Approximate rates — for reference only</div>
+    </div>
+  </div>
+
+  <!-- 26. TEXT DUPLICATE REMOVER -->
+  <div class="tool-card active" data-tool="text" data-keywords="duplicate remove lines text unique sort clean list">
+    <div class="card-header"><div class="card-icon" style="font-size:.7rem">&#10006;</div><div><div class="card-title">Duplicate Line Remover</div><div class="card-subtitle">Remove duplicate lines from any text</div></div></div>
+    <div class="card-body">
+      <textarea id="dup-input" rows="5" placeholder="Paste lines here…&#10;apple&#10;banana&#10;apple&#10;cherry"></textarea>
+      <div class="btn-row">
+        <button class="btn" onclick="removeDups(false)">Remove Duplicates</button>
+        <button class="btn btn-ghost" onclick="removeDups(true)">Remove &amp; Sort</button>
+      </div>
+      <div class="result-box hidden" id="dup-result"></div>
+      <div id="dup-actions" style="display:none" class="btn-row"><button class="btn btn-ghost" onclick="copyEl('dup-result','dup-copied')">Copy</button><span class="copied" id="dup-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 27. LOREM IPSUM GENERATOR -->
+  <div class="tool-card active" data-tool="text" data-keywords="lorem ipsum placeholder text generator dummy design">
+    <div class="card-header"><div class="card-icon" style="font-size:.68rem">&#8230;</div><div><div class="card-title">Lorem Ipsum Generator</div><div class="card-subtitle">Generate placeholder text instantly</div></div></div>
+    <div class="card-body">
+      <div class="input-row">
+        <div><label class="input-label">Paragraphs</label><input type="number" id="lorem-p" value="3" min="1" max="20"/></div>
+        <div><label class="input-label">Style</label><select id="lorem-style"><option value="classic">Classic Lorem</option><option value="random">Random words</option></select></div>
+      </div>
+      <button class="btn" onclick="genLorem()">Generate</button>
+      <div class="result-box hidden" id="lorem-result" style="max-height:180px;overflow-y:auto"></div>
+      <div id="lorem-actions" style="display:none" class="btn-row"><button class="btn btn-ghost" onclick="copyEl('lorem-result','lorem-copied')">Copy</button><span class="copied" id="lorem-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 28. MORTGAGE CALCULATOR -->
+  <div class="tool-card active" data-tool="finance" data-keywords="mortgage calculator home loan house payment interest">
+    <div class="card-header"><div class="card-icon" style="font-size:.75rem">&#127968;</div><div><div class="card-title">Mortgage Calculator</div><div class="card-subtitle">Monthly payment &amp; total cost</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Home Price ($)</label>
+      <input type="number" id="mtg-price" placeholder="e.g. 300000" oninput="calcMortgage()"/>
+      <label class="input-label">Down Payment ($)</label>
+      <input type="number" id="mtg-down" placeholder="e.g. 60000" oninput="calcMortgage()"/>
+      <div class="input-row">
+        <div><label class="input-label">Interest Rate (%)</label><input type="number" id="mtg-rate" placeholder="e.g. 6.5" oninput="calcMortgage()"/></div>
+        <div><label class="input-label">Loan Term (years)</label><input type="number" id="mtg-term" placeholder="e.g. 30" oninput="calcMortgage()"/></div>
+      </div>
+      <div class="result-box hidden" id="mtg-result"></div>
+    </div>
+  </div>
+
+  <!-- 29. CHARACTER FREQUENCY -->
+  <div class="tool-card active" data-tool="text" data-keywords="character frequency analysis count letters text stats">
+    <div class="card-header"><div class="card-icon" style="font-size:.7rem">A=3</div><div><div class="card-title">Char Frequency</div><div class="card-subtitle">Most common characters in your text</div></div></div>
+    <div class="card-body">
+      <textarea id="freq-input" rows="4" placeholder="Paste text to analyse…"></textarea>
+      <button class="btn" onclick="calcFreq()">Analyse</button>
+      <div class="result-box hidden" id="freq-result" style="font-family:monospace;font-size:.8rem;max-height:150px;overflow-y:auto"></div>
+    </div>
+  </div>
+
+  <!-- 30. URL ENCODER / DECODER -->
+  <div class="tool-card active" data-tool="developer" data-keywords="url encode decode percent encoding developer link query">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">URL</div><div><div class="card-title">URL Encoder</div><div class="card-subtitle">Encode &amp; decode URLs / query strings</div></div></div>
+    <div class="card-body">
+      <textarea id="url-input" rows="3" placeholder="Enter URL or text…"></textarea>
+      <div class="btn-row">
+        <button class="btn" onclick="doURL('encode')">Encode</button>
+        <button class="btn btn-ghost" onclick="doURL('decode')">Decode</button>
+      </div>
+      <div class="result-box hidden" id="url-result" style="font-family:monospace;font-size:.8rem"></div>
+      <div id="url-actions" style="display:none" class="btn-row"><button class="btn btn-ghost" onclick="copyEl('url-result','url-copied')">Copy</button><span class="copied" id="url-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 31. INVOICE GENERATOR -->
+  <div class="tool-card active" data-tool="finance" data-keywords="invoice generator bill freelance business client print">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">INV</div><div><div class="card-title">Invoice Generator</div><div class="card-subtitle">Quick invoice — print or save as PDF</div></div></div>
+    <div class="card-body">
+      <input type="text" id="inv-from" placeholder="Your name / company" style="margin-bottom:.4rem"/>
+      <input type="text" id="inv-to" placeholder="Client name" style="margin-bottom:.4rem"/>
+      <input type="text" id="inv-item" placeholder="Description of work" style="margin-bottom:.4rem"/>
+      <div class="input-row">
+        <div><label class="input-label">Amount ($)</label><input type="number" id="inv-amt" placeholder="500"/></div>
+        <div><label class="input-label">Date</label><input type="date" id="inv-date"/></div>
+      </div>
+      <button class="btn" onclick="printInvoice()">&#128424; Print / Save PDF</button>
+    </div>
+  </div>
+
+  <!-- 32. HASH GENERATOR -->
+  <div class="tool-card active" data-tool="developer" data-keywords="hash md5 sha256 checksum developer security text">
+    <div class="card-header"><div class="card-icon" style="font-size:.6rem">SHA</div><div><div class="card-title">Hash Generator</div><div class="card-subtitle">SHA-256 &amp; SHA-1 text hashing</div></div></div>
+    <div class="card-body">
+      <textarea id="hash-input" rows="3" placeholder="Enter text to hash…" oninput="genHash()"></textarea>
+      <label class="input-label">SHA-256</label>
+      <div class="result-box" id="hash-256" style="font-family:monospace;font-size:.75rem;min-height:36px"></div>
+      <label class="input-label">SHA-1</label>
+      <div class="result-box" id="hash-1" style="font-family:monospace;font-size:.75rem;min-height:36px"></div>
+      <div class="btn-row"><button class="btn btn-ghost" onclick="copyEl('hash-256','hash-copied')">Copy SHA-256</button><span class="copied" id="hash-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 33. REGEX TESTER -->
+  <div class="tool-card active" data-tool="developer" data-keywords="regex regular expression tester test match pattern developer">
+    <div class="card-header"><div class="card-icon" style="font-size:.7rem">.*</div><div><div class="card-title">Regex Tester</div><div class="card-subtitle">Test regular expressions live</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Pattern</label>
+      <input type="text" id="rx-pattern" placeholder="e.g. \d+" oninput="testRegex()"/>
+      <label class="input-label">Flags</label>
+      <input type="text" id="rx-flags" placeholder="g i m" value="g" oninput="testRegex()" style="margin-bottom:.4rem"/>
+      <label class="input-label">Test String</label>
+      <textarea id="rx-input" rows="3" placeholder="Enter text to test…" oninput="testRegex()"></textarea>
+      <div class="result-box hidden" id="rx-result"></div>
+    </div>
+  </div>
+
+</div><!-- /grid -->
+
+<div class="ad-slot" style="margin:0 3rem 0"><!-- Google AdSense 728x90 --> Advertisement &middot; 728&times;90</div>
 <footer>
   <span>&copy; 2025 ToolCraft &middot; All tools run locally in your browser</span>
   <span>Free to use &middot; No data collected</span>
 </footer>
 
 <script>
-// TABS
-const TABS=[{id:'all',label:'All'},{id:'text',label:'Text'},{id:'math',label:'Math'},{id:'time',label:'Time'},{id:'security',label:'Security'},{id:'health',label:'Health'},{id:'design',label:'Design'},{id:'finance',label:'Finance'},{id:'fun',label:'Fun'}];
+// ── TABS ──────────────────────────────────────────────────────────────────────
+const TABS=[{id:'all',label:'All'},{id:'text',label:'Text'},{id:'math',label:'Math'},{id:'time',label:'Time'},{id:'security',label:'Security'},{id:'health',label:'Health'},{id:'design',label:'Design'},{id:'finance',label:'Finance'},{id:'developer',label:'Developer'},{id:'fun',label:'Fun'}];
 const tabsEl=document.getElementById('tabs');
 const cards=[...document.querySelectorAll('.tool-card')];
+let activeTab='all';
 TABS.forEach(t=>{
   const b=document.createElement('button');
   b.className='nav-tab'+(t.id==='all'?' on':'');
   b.textContent=t.label;
   b.onclick=()=>{
+    activeTab=t.id;
     document.querySelectorAll('.nav-tab').forEach(x=>x.classList.remove('on'));
     b.classList.add('on');
-    cards.forEach(c=>c.classList.toggle('active',t.id==='all'||c.dataset.tool===t.id));
+    document.getElementById('search-input').value='';
+    filterCards();
   };
   tabsEl.appendChild(b);
 });
 
-// WORD COUNTER
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+function doSearch(){
+  const q=document.getElementById('search-input').value.toLowerCase().trim();
+  activeTab='all';
+  document.querySelectorAll('.nav-tab').forEach((b,i)=>{b.classList.toggle('on',i===0);});
+  filterCards(q);
+}
+function filterCards(q=''){
+  const sq=document.getElementById('search-input').value.toLowerCase().trim();
+  const query=q||sq;
+  let vis=0;
+  cards.forEach(c=>{
+    const matchTab=activeTab==='all'||c.dataset.tool===activeTab;
+    const kw=(c.dataset.keywords||'').toLowerCase();
+    const title=c.querySelector('.card-title').textContent.toLowerCase();
+    const matchSearch=!query||kw.includes(query)||title.includes(query);
+    const show=matchTab&&matchSearch;
+    c.classList.toggle('active',show);
+    if(show)vis++;
+  });
+  const sc=document.getElementById('search-count');
+  const nr=document.getElementById('no-results');
+  sc.textContent=query?`${vis} tool${vis!==1?'s':''} found`:'';
+  nr.style.display=vis===0?'block':'none';
+}
+
+// ── WORD COUNTER ──────────────────────────────────────────────────────────────
 function countWords(){
   const t=document.getElementById('wc-input').value;
   const words=t.trim()===''?0:t.trim().split(/\s+/).length;
@@ -403,11 +666,11 @@ function countWords(){
   document.getElementById('wc-w').textContent=words;
   document.getElementById('wc-c').textContent=t.length;
   document.getElementById('wc-s').textContent=sents;
-  document.getElementById('wc-r').textContent=rs<60?rs+' sec':Math.round(rs/60)+' min';
+  document.getElementById('wc-r').textContent=rs<60?rs+'s':Math.round(rs/60)+'m';
   document.getElementById('wc-p').textContent=paras;
 }
 
-// PERCENTAGE
+// ── PERCENTAGE ────────────────────────────────────────────────────────────────
 function calcPct(){
   const mode=document.getElementById('pct-mode').value;
   const a=parseFloat(document.getElementById('pct-a').value);
@@ -417,13 +680,13 @@ function calcPct(){
   document.getElementById('pct-lbl2').textContent=mode==='change'?'To (Y)':mode==='is'?'Whole (Y)':'Number (Y)';
   if(isNaN(a)||isNaN(b)){res.classList.add('hidden');return;}
   let ans='';
-  if(mode==='of') ans=a+'% of '+b+' = '+(+(a/100*b).toFixed(8));
-  if(mode==='is') ans=a+' is '+(+((a/b)*100).toFixed(6))+'% of '+b;
-  if(mode==='change') ans='% change: '+(+(((b-a)/a)*100).toFixed(4))+'%';
-  res.textContent=ans; res.classList.remove('hidden');
+  if(mode==='of')ans=a+'% of '+b+' = '+(+(a/100*b).toFixed(8));
+  if(mode==='is')ans=a+' is '+(+((a/b)*100).toFixed(6))+'% of '+b;
+  if(mode==='change')ans='% change: '+(+(((b-a)/a)*100).toFixed(4))+'%';
+  res.textContent=ans;res.classList.remove('hidden');
 }
 
-// AGE
+// ── AGE ───────────────────────────────────────────────────────────────────────
 function calcAge(){
   const dob=new Date(document.getElementById('age-dob').value);
   if(isNaN(dob))return;
@@ -434,13 +697,12 @@ function calcAge(){
   const totalDays=Math.floor((now-dob)/86400000);
   const next=new Date(dob);next.setFullYear(now.getFullYear());
   if(next<=now)next.setFullYear(now.getFullYear()+1);
-  const daysToB=Math.ceil((next-now)/86400000);
   const res=document.getElementById('age-result');
-  res.textContent='Age: '+y+' years, '+m+' months, '+d+' days\nTotal days: '+totalDays.toLocaleString()+'\nNext birthday in: '+daysToB+' day'+(daysToB===1?'':'s');
+  res.textContent='Age: '+y+' years, '+m+' months, '+d+' days\nTotal days: '+totalDays.toLocaleString()+'\nNext birthday in: '+Math.ceil((next-now)/86400000)+' days';
   res.classList.remove('hidden');
 }
 
-// PASSWORD
+// ── PASSWORD ──────────────────────────────────────────────────────────────────
 function genPw(){
   const len=+document.getElementById('pw-len').value;
   let chars='';
@@ -453,22 +715,20 @@ function genPw(){
   const pw=[...arr].map(v=>chars[v%chars.length]).join('');
   document.getElementById('pw-result').textContent=pw;
   const score=Math.min(4,[len>=12,len>=20,/[A-Z]/.test(pw),/[a-z]/.test(pw),/[0-9]/.test(pw),/[^A-Za-z0-9]/.test(pw)].filter(Boolean).length);
-  const colors=['#e74c3c','#e67e22','#f1c40f','#2ecc71','#1abc9c'];
   const fill=document.getElementById('pw-sf');
-  fill.style.width=(score/4*100)+'%';fill.style.background=colors[score];
+  fill.style.width=(score/4*100)+'%';
+  fill.style.background=['#e74c3c','#e67e22','#f1c40f','#2ecc71','#1abc9c'][score];
 }
 
-// TEXT CASE
+// ── TEXT CASE ─────────────────────────────────────────────────────────────────
 function convertCase(mode){
-  const t=document.getElementById('tc-input').value;
-  if(!t.trim())return;
+  const t=document.getElementById('tc-input').value;if(!t.trim())return;
   const map={upper:t.toUpperCase(),lower:t.toLowerCase(),title:t.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()),sentence:t.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,c=>c.toUpperCase()),camel:t.trim().toLowerCase().replace(/[\s_-]+(\w)/g,(_,c)=>c.toUpperCase()),snake:t.trim().toLowerCase().replace(/[\s-]+/g,'_'),kebab:t.trim().toLowerCase().replace(/[\s_]+/g,'-')};
-  const res=document.getElementById('tc-result');
-  res.textContent=map[mode];res.classList.remove('hidden');
+  const res=document.getElementById('tc-result');res.textContent=map[mode];res.classList.remove('hidden');
   document.getElementById('tc-actions').style.display='flex';
 }
 
-// BMI
+// ── BMI ───────────────────────────────────────────────────────────────────────
 function calcBmi(){
   const w=parseFloat(document.getElementById('bmi-w').value);
   const h=parseFloat(document.getElementById('bmi-h').value)/100;
@@ -476,12 +736,11 @@ function calcBmi(){
   if(!w||!h){res.classList.add('hidden');return;}
   const bmi=(w/(h*h)).toFixed(1);
   const cat=bmi<18.5?'Underweight':bmi<25?'Normal weight':bmi<30?'Overweight':'Obese';
-  const ideal=[18.5*h*h,24.9*h*h].map(x=>x.toFixed(1));
-  res.textContent='BMI: '+bmi+'  —  '+cat+'\nIdeal range: '+ideal[0]+' – '+ideal[1]+' kg';
+  res.textContent='BMI: '+bmi+'  —  '+cat+'\nIdeal range: '+(18.5*h*h).toFixed(1)+' – '+(24.9*h*h).toFixed(1)+' kg';
   res.classList.remove('hidden');
 }
 
-// UNIT CONVERTER
+// ── UNIT CONVERTER ────────────────────────────────────────────────────────────
 const UNITS={length:{m:'Metre',km:'Kilometre',cm:'Centimetre',mm:'Millimetre',mi:'Mile',yd:'Yard',ft:'Foot',in:'Inch'},weight:{kg:'Kilogram',g:'Gram',lb:'Pound',oz:'Ounce',t:'Metric Tonne'},temp:{C:'Celsius',F:'Fahrenheit',K:'Kelvin'},speed:{mps:'m/s',kph:'km/h',mph:'mph',knot:'Knot'},area:{m2:'m²',km2:'km²',ha:'Hectare',acre:'Acre',ft2:'ft²'},volume:{l:'Litre',ml:'Millilitre',m3:'m³',gal:'US Gallon',qt:'Quart',cup:'Cup'}};
 const TO_BASE={length:{m:1,km:1e3,cm:.01,mm:.001,mi:1609.344,yd:.9144,ft:.3048,in:.0254},weight:{kg:1,g:.001,lb:.453592,oz:.0283495,t:1e3},speed:{mps:1,kph:1/3.6,mph:.44704,knot:.514444},area:{m2:1,km2:1e6,ha:1e4,acre:4046.86,ft2:.0929},volume:{l:1,ml:.001,m3:1e3,gal:3.78541,qt:.946353,cup:.236588}};
 function setupUnit(){
@@ -504,12 +763,11 @@ function convertUnit(){
   let result;
   if(type==='temp'){let c=from==='C'?val:from==='F'?(val-32)*5/9:val-273.15;result=to==='C'?c:to==='F'?c*9/5+32:c+273.15;}
   else{result=val*TO_BASE[type][from]/TO_BASE[type][to];}
-  const fmt=Math.abs(result)>0.0001?+result.toFixed(6):result.toExponential(4);
-  res.textContent=val+' '+UNITS[type][from]+' = '+fmt+' '+UNITS[type][to];
+  res.textContent=val+' '+UNITS[type][from]+' = '+(+result.toFixed(6))+' '+UNITS[type][to];
   res.classList.remove('hidden');
 }
 
-// TIP
+// ── TIP ───────────────────────────────────────────────────────────────────────
 function calcTip(){
   const bill=parseFloat(document.getElementById('tip-bill').value);
   const pct=+document.getElementById('tip-pct').value;
@@ -517,11 +775,11 @@ function calcTip(){
   const res=document.getElementById('tip-result');
   if(!bill){res.classList.add('hidden');return;}
   const tip=bill*pct/100;const total=bill+tip;
-  res.textContent='Tip ('+pct+'%): $'+tip.toFixed(2)+'\nTotal: $'+total.toFixed(2)+'\nPer person: $'+(total/split).toFixed(2)+'  (tip: $'+(tip/split).toFixed(2)+')';
+  res.textContent='Tip ('+pct+'%): $'+tip.toFixed(2)+'\nTotal: $'+total.toFixed(2)+'\nPer person: $'+(total/split).toFixed(2)+' (tip $'+(tip/split).toFixed(2)+')';
   res.classList.remove('hidden');
 }
 
-// COLOUR
+// ── COLOUR ────────────────────────────────────────────────────────────────────
 function hexToRgb(hex){return{r:parseInt(hex.slice(1,3),16),g:parseInt(hex.slice(3,5),16),b:parseInt(hex.slice(5,7),16)};}
 function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b);let h,s,l=(max+min)/2;if(max===min){h=s=0;}else{const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=((g-b)/d+(g<b?6:0))/6;break;case g:h=((b-r)/d+2)/6;break;default:h=((r-g)/d+4)/6;}}return{h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};}
 function updateColor(hex){
@@ -531,12 +789,12 @@ function updateColor(hex){
   document.getElementById('color-hex-in').value=hex;
   const{r,g,b}=hexToRgb(hex);const{h,s,l}=rgbToHsl(r,g,b);
   const codes=[{label:'HEX',value:hex.toUpperCase()},{label:'RGB',value:'rgb('+r+', '+g+', '+b+')'},{label:'HSL',value:'hsl('+h+', '+s+'%, '+l+'%)'},{label:'Raw RGB',value:r+', '+g+', '+b}];
-  document.getElementById('color-codes').innerHTML=codes.map((c,i)=>'<div class="color-code-box" onclick="copyStr(\''+c.value+'\',\'cc'+i+'\')"><div class="code-label">'+c.label+'</div><div>'+c.value+'</div><span class="copied" id="cc'+i+'" style="position:absolute;top:6px;right:8px">&#10003;</span></div>').join('');
+  document.getElementById('color-codes').innerHTML=codes.map((c,i)=>'<div class="color-code-box" onclick="copyStr(\''+c.value+'\',\'cc'+i+'\')"><div class="code-label">'+c.label+'</div><div>'+c.value+'</div><span class="copied" id="cc'+i+'" style="position:absolute;top:4px;right:6px">&#10003;</span></div>').join('');
 }
 function tryHexInput(v){if(/^#[0-9a-fA-F]{6}$/.test(v))updateColor(v);}
-function copyStr(str,flashId){navigator.clipboard.writeText(str);flash(flashId);}
+function copyStr(str,fId){navigator.clipboard.writeText(str);flash(fId);}
 
-// LOAN
+// ── LOAN ──────────────────────────────────────────────────────────────────────
 function calcLoan(){
   const P=parseFloat(document.getElementById('loan-amt').value);
   const r=parseFloat(document.getElementById('loan-rate').value)/100/12;
@@ -544,69 +802,310 @@ function calcLoan(){
   const res=document.getElementById('loan-result');
   if(!P||isNaN(r)||!n){res.classList.add('hidden');return;}
   const emi=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-  const total=emi*n;const interest=total-P;
-  res.textContent='Monthly Payment: $'+emi.toFixed(2)+'\nTotal Repayment: $'+total.toFixed(2)+'\nTotal Interest: $'+interest.toFixed(2)+'\nInterest as % of loan: '+(interest/P*100).toFixed(1)+'%';
+  const total=emi*n;
+  res.textContent='Monthly Payment: $'+emi.toFixed(2)+'\nTotal Repayment: $'+total.toFixed(2)+'\nTotal Interest: $'+(total-P).toFixed(2);
   res.classList.remove('hidden');
 }
 
-// QR
+// ── QR ────────────────────────────────────────────────────────────────────────
 function genQR(){
   const val=document.getElementById('qr-input').value.trim();
   const out=document.getElementById('qr-output');
   if(!val){out.style.display='none';return;}
-  const url='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data='+encodeURIComponent(val);
+  const url='https://api.qrserver.com/v1/create-qr-code/?size=160x160&data='+encodeURIComponent(val);
   document.getElementById('qr-img').src=url;
   document.getElementById('qr-dl').href=url+'&format=png';
   out.style.display='block';
 }
 
-// RANDOM
+// ── RANDOM PICKER ─────────────────────────────────────────────────────────────
 function toggleRandMode(){
   const m=document.getElementById('rand-mode').value;
   document.getElementById('rand-names-section').style.display=m==='names'?'block':'none';
   document.getElementById('rand-number-section').style.display=m==='number'?'block':'none';
   document.getElementById('rand-result').classList.add('hidden');
 }
-function pickRandom(){
-  const names=document.getElementById('rand-names').value.split('\n').map(s=>s.trim()).filter(Boolean);
-  if(!names.length)return;
-  const res=document.getElementById('rand-result');
-  res.textContent='Selected: '+names[Math.floor(Math.random()*names.length)];
-  res.classList.remove('hidden');
-}
-function pickMultiple(){
-  const names=document.getElementById('rand-names').value.split('\n').map(s=>s.trim()).filter(Boolean);
-  if(names.length<3){alert('Need at least 3 names');return;}
-  const s=[...names].sort(()=>Math.random()-.5).slice(0,3);
-  const res=document.getElementById('rand-result');
-  res.textContent='Top 3:\n1. '+s[0]+'\n2. '+s[1]+'\n3. '+s[2];
-  res.classList.remove('hidden');
-}
-function pickNumber(){
-  const min=+document.getElementById('rand-min').value,max=+document.getElementById('rand-max').value;
-  if(min>=max){alert('Min must be less than Max');return;}
-  const res=document.getElementById('rand-result');
-  res.textContent='Result: '+(Math.floor(Math.random()*(max-min+1))+min);
-  res.classList.remove('hidden');
-}
+function pickRandom(){const names=document.getElementById('rand-names').value.split('\n').map(s=>s.trim()).filter(Boolean);if(!names.length)return;const res=document.getElementById('rand-result');res.textContent='Selected: '+names[Math.floor(Math.random()*names.length)];res.classList.remove('hidden');}
+function pickMultiple(){const names=document.getElementById('rand-names').value.split('\n').map(s=>s.trim()).filter(Boolean);if(names.length<3){alert('Need at least 3 names');return;}const s=[...names].sort(()=>Math.random()-.5).slice(0,3);const res=document.getElementById('rand-result');res.textContent='1. '+s[0]+'\n2. '+s[1]+'\n3. '+s[2];res.classList.remove('hidden');}
+function pickNumber(){const min=+document.getElementById('rand-min').value,max=+document.getElementById('rand-max').value;if(min>=max){alert('Min must be less than Max');return;}const res=document.getElementById('rand-result');res.textContent='Result: '+(Math.floor(Math.random()*(max-min+1))+min);res.classList.remove('hidden');}
 
-// STOPWATCH
+// ── STOPWATCH ─────────────────────────────────────────────────────────────────
 let swInterval=null,swStart=0,swElapsed=0,swRunning=false,swLaps=[];
-function swToggle(){
-  if(!swRunning){swStart=Date.now()-swElapsed;swInterval=setInterval(swTick,13);swRunning=true;document.getElementById('sw-start-btn').textContent='Pause';document.getElementById('sw-lap-btn').disabled=false;}
-  else{clearInterval(swInterval);swElapsed=Date.now()-swStart;swRunning=false;document.getElementById('sw-start-btn').textContent='Resume';document.getElementById('sw-lap-btn').disabled=true;}
-}
-function swTick(){swElapsed=Date.now()-swStart;document.getElementById('sw-display').textContent=swFmt(swElapsed);}
+function swToggle(){if(!swRunning){swStart=Date.now()-swElapsed;swInterval=setInterval(()=>{swElapsed=Date.now()-swStart;document.getElementById('sw-display').textContent=swFmt(swElapsed);},13);swRunning=true;document.getElementById('sw-start-btn').textContent='Pause';document.getElementById('sw-lap-btn').disabled=false;}else{clearInterval(swInterval);swElapsed=Date.now()-swStart;swRunning=false;document.getElementById('sw-start-btn').textContent='Resume';document.getElementById('sw-lap-btn').disabled=true;}}
 function swFmt(ms){const m=Math.floor(ms/60000),s=Math.floor((ms%60000)/1000),cs=ms%1000;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+'.'+String(cs).padStart(3,'0');}
-function swLap(){swLaps.push(swElapsed);document.getElementById('sw-laps').innerHTML=swLaps.map((l,i)=>'<div style="padding:.25rem .5rem;border-bottom:1px solid var(--border)">Lap '+(i+1)+': '+swFmt(l)+'</div>').reverse().join('');}
-function swReset(){clearInterval(swInterval);swInterval=swStart=swElapsed=0;swRunning=false;swLaps=[];document.getElementById('sw-display').textContent='00:00.000';document.getElementById('sw-start-btn').textContent='Start';document.getElementById('sw-lap-btn').disabled=true;document.getElementById('sw-laps').innerHTML='';}
+function swLap(){swLaps.push(swElapsed);document.getElementById('sw-laps').innerHTML=swLaps.map((l,i)=>'<div style="padding:.2rem .4rem;border-bottom:1px solid var(--border)">Lap '+(i+1)+': '+swFmt(l)+'</div>').reverse().join('');}
+function swReset(){clearInterval(swInterval);swInterval=null;swStart=swElapsed=0;swRunning=false;swLaps=[];document.getElementById('sw-display').textContent='00:00.000';document.getElementById('sw-start-btn').textContent='Start';document.getElementById('sw-lap-btn').disabled=true;document.getElementById('sw-laps').innerHTML='';}
 
-// UTILS
+// ── COUNTDOWN ─────────────────────────────────────────────────────────────────
+let cdInterval=null,cdRemaining=0,cdRunning=false;
+function cdToggle(){
+  if(!cdRunning){
+    if(!cdRemaining){const h=+document.getElementById('cd-h').value||0,m=+document.getElementById('cd-m').value||0,s=+document.getElementById('cd-s').value||0;cdRemaining=h*3600+m*60+s;}
+    if(!cdRemaining)return;
+    cdInterval=setInterval(()=>{cdRemaining--;cdUpdate();if(cdRemaining<=0){clearInterval(cdInterval);cdRunning=false;document.getElementById('cd-start-btn').textContent='Start';alert('Time is up!');}},1000);
+    cdRunning=true;document.getElementById('cd-start-btn').textContent='Pause';
+  }else{clearInterval(cdInterval);cdRunning=false;document.getElementById('cd-start-btn').textContent='Resume';}
+}
+function cdUpdate(){const h=Math.floor(cdRemaining/3600),m=Math.floor((cdRemaining%3600)/60),s=cdRemaining%60;document.getElementById('cd-display').textContent=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
+function cdReset(){clearInterval(cdInterval);cdRunning=false;cdRemaining=0;document.getElementById('cd-start-btn').textContent='Start';const h=+document.getElementById('cd-h').value||0,m=+document.getElementById('cd-m').value||0,s=+document.getElementById('cd-s').value||0;const tot=h*3600+m*60+s;document.getElementById('cd-display').textContent=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
+
+// ── COMPOUND INTEREST ─────────────────────────────────────────────────────────
+function calcCI(){
+  const P=parseFloat(document.getElementById('ci-p').value);
+  const r=parseFloat(document.getElementById('ci-r').value)/100;
+  const t=parseFloat(document.getElementById('ci-t').value);
+  const n=+document.getElementById('ci-n').value;
+  const res=document.getElementById('ci-result');
+  if(!P||!r||!t){res.classList.add('hidden');return;}
+  const A=P*Math.pow(1+r/n,n*t);
+  res.textContent='Future Value: $'+A.toFixed(2)+'\nInterest Earned: $'+(A-P).toFixed(2)+'\nTotal Growth: '+((A-P)/P*100).toFixed(2)+'%';
+  res.classList.remove('hidden');
+}
+
+// ── GRADE CALCULATOR ──────────────────────────────────────────────────────────
+function calcGrade(){
+  const lines=document.getElementById('grade-input').value.split('\n').map(s=>parseFloat(s.trim())).filter(n=>!isNaN(n));
+  const res=document.getElementById('grade-result');
+  if(!lines.length){res.classList.add('hidden');return;}
+  const avg=lines.reduce((a,b)=>a+b,0)/lines.length;
+  const letter=avg>=90?'A':avg>=80?'B':avg>=70?'C':avg>=60?'D':'F';
+  const gpa=avg>=90?4:avg>=80?3:avg>=70?2:avg>=60?1:0;
+  res.textContent='Average: '+avg.toFixed(2)+'%\nGrade: '+letter+'\nGPA: '+gpa+'.0\nSubjects: '+lines.length;
+  res.classList.remove('hidden');
+}
+
+// ── NUMBER BASE CONVERTER ─────────────────────────────────────────────────────
+function convertBase(from){
+  let val;
+  try{
+    if(from==='dec')val=parseInt(document.getElementById('nb-dec').value,10);
+    else if(from==='bin')val=parseInt(document.getElementById('nb-bin').value,2);
+    else if(from==='hex')val=parseInt(document.getElementById('nb-hex').value,16);
+    else val=parseInt(document.getElementById('nb-oct').value,8);
+    if(isNaN(val))return;
+    if(from!=='dec')document.getElementById('nb-dec').value=val;
+    if(from!=='bin')document.getElementById('nb-bin').value=val.toString(2);
+    if(from!=='hex')document.getElementById('nb-hex').value=val.toString(16).toUpperCase();
+    if(from!=='oct')document.getElementById('nb-oct').value=val.toString(8);
+  }catch(e){}
+}
+
+// ── BASE64 ────────────────────────────────────────────────────────────────────
+function doBase64(mode){
+  const inp=document.getElementById('b64-input').value;
+  const res=document.getElementById('b64-result');
+  try{
+    res.textContent=mode==='encode'?btoa(unescape(encodeURIComponent(inp))):decodeURIComponent(escape(atob(inp)));
+    res.classList.remove('hidden');
+    document.getElementById('b64-actions').style.display='flex';
+  }catch(e){res.textContent='Error: '+e.message;res.classList.remove('hidden');}
+}
+
+// ── JSON FORMATTER ────────────────────────────────────────────────────────────
+function formatJSON(mode){
+  const inp=document.getElementById('json-input').value;
+  const res=document.getElementById('json-result');
+  try{
+    const parsed=JSON.parse(inp);
+    if(mode==='pretty')res.textContent=JSON.stringify(parsed,null,2);
+    else if(mode==='minify')res.textContent=JSON.stringify(parsed);
+    else res.textContent='Valid JSON ✓';
+    res.classList.remove('hidden');
+  }catch(e){res.textContent='Invalid JSON: '+e.message;res.classList.remove('hidden');}
+}
+
+// ── TEXT REVERSER ─────────────────────────────────────────────────────────────
+function reverseText(mode){
+  const t=document.getElementById('rev-input').value;
+  const res=document.getElementById('rev-result');
+  if(!t.trim()){res.classList.add('hidden');return;}
+  if(mode==='chars')res.textContent=t.split('').reverse().join('');
+  else if(mode==='words')res.textContent=t.split(' ').reverse().join(' ');
+  else{const clean=t.toLowerCase().replace(/[^a-z0-9]/g,'');res.textContent=clean===clean.split('').reverse().join('')?'Yes, it\'s a palindrome! ✓':'Not a palindrome ✗';}
+  res.classList.remove('hidden');
+}
+
+// ── ROMAN NUMERALS ────────────────────────────────────────────────────────────
+function toRoman(){
+  let n=parseInt(document.getElementById('rom-num').value);
+  const res=document.getElementById('rom-result');
+  if(!n||n<1||n>3999){res.classList.add('hidden');return;}
+  const vals=[1000,900,500,400,100,90,50,40,10,9,5,4,1];
+  const syms=['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
+  let r='';vals.forEach((v,i)=>{while(n>=v){r+=syms[i];n-=v;}});
+  res.textContent=r;res.classList.remove('hidden');
+}
+function fromRoman(){
+  const s=document.getElementById('rom-in').value.toUpperCase();
+  const res=document.getElementById('rom-result2');
+  const map={I:1,V:5,X:10,L:50,C:100,D:500,M:1000};
+  let total=0;
+  for(let i=0;i<s.length;i++){const cur=map[s[i]],next=map[s[i+1]];if(!cur){res.textContent='Invalid Roman numeral';res.classList.remove('hidden');return;}total+=next&&cur<next?-cur:cur;}
+  res.textContent=total;res.classList.remove('hidden');
+}
+
+// ── CALORIE / TDEE ────────────────────────────────────────────────────────────
+function calcCal(){
+  const age=+document.getElementById('cal-age').value;
+  const sex=document.getElementById('cal-sex').value;
+  const w=+document.getElementById('cal-w').value;
+  const h=+document.getElementById('cal-h').value;
+  const act=+document.getElementById('cal-act').value;
+  const res=document.getElementById('cal-result');
+  if(!age||!w||!h){res.classList.add('hidden');return;}
+  const bmr=sex==='m'?10*w+6.25*h-5*age+5:10*w+6.25*h-5*age-161;
+  const tdee=bmr*act;
+  res.textContent='BMR: '+Math.round(bmr)+' kcal/day\nTDEE: '+Math.round(tdee)+' kcal/day\nTo lose weight: '+Math.round(tdee-500)+' kcal/day\nTo gain weight: '+Math.round(tdee+500)+' kcal/day';
+  res.classList.remove('hidden');
+}
+
+// ── SLEEP CALCULATOR ──────────────────────────────────────────────────────────
+function calcSleep(){
+  const wake=document.getElementById('sleep-wake').value;
+  const res=document.getElementById('sleep-result');
+  if(!wake.match(/^\d{1,2}:\d{2}$/)){res.classList.add('hidden');return;}
+  const[wh,wm]=wake.split(':').map(Number);
+  const wMins=wh*60+wm;
+  const times=[];
+  for(let c=6;c>=1;c--){let t=wMins-c*90-15;if(t<0)t+=1440;times.push(Math.floor(t/60)+'h'+String(t%60).padStart(2,'0')+'m ('+c+' cycles)');}
+  res.textContent='Go to sleep at:\n'+times.join('\n');
+  res.classList.remove('hidden');
+}
+function calcSleepFromBed(){
+  const bed=document.getElementById('sleep-bed').value;
+  const res=document.getElementById('sleep-result2');
+  if(!bed.match(/^\d{1,2}:\d{2}$/)){res.classList.add('hidden');return;}
+  const[bh,bm]=bed.split(':').map(Number);
+  const bMins=bh*60+bm+15;
+  const times=[];
+  for(let c=1;c<=6;c++){let t=bMins+c*90;if(t>=1440)t-=1440;times.push(Math.floor(t/60)+'h'+String(t%60).padStart(2,'0')+'m ('+c+' cycles)');}
+  res.textContent='Wake up at:\n'+times.join('\n');
+  res.classList.remove('hidden');
+}
+
+// ── ASPECT RATIO ──────────────────────────────────────────────────────────────
+function calcAR(){const r=document.getElementById('ar-ratio').value;const[a,b]=r.split(':').map(Number);if(!a||!b)return;const w=+document.getElementById('ar-w').value;if(w){document.getElementById('ar-h').value=Math.round(w*b/a);showAR();}else{const h=+document.getElementById('ar-h').value;if(h){document.getElementById('ar-w').value=Math.round(h*a/b);showAR();}}}
+function calcARfromW(){const r=document.getElementById('ar-ratio').value;const[a,b]=r.split(':').map(Number);const w=+document.getElementById('ar-w').value;if(a&&b&&w){document.getElementById('ar-h').value=Math.round(w*b/a);showAR();}}
+function calcARfromH(){const r=document.getElementById('ar-ratio').value;const[a,b]=r.split(':').map(Number);const h=+document.getElementById('ar-h').value;if(a&&b&&h){document.getElementById('ar-w').value=Math.round(h*a/b);showAR();}}
+function showAR(){const w=document.getElementById('ar-w').value,h=document.getElementById('ar-h').value;const res=document.getElementById('ar-result');res.textContent=w+' × '+h+' px';res.classList.remove('hidden');}
+
+// ── CURRENCY CONVERTER ────────────────────────────────────────────────────────
+const FX_RATES={USD:1,EUR:0.92,GBP:0.79,JPY:149.5,AUD:1.53,CAD:1.36,CHF:0.89,CNY:7.24,INR:83.1,MUR:46.2,BRL:4.97,ZAR:18.6,SGD:1.34,HKD:7.82,MXN:17.2,NOK:10.6,SEK:10.4,DKK:6.88,NZD:1.63,THB:35.1};
+function setupFX(){const keys=Object.keys(FX_RATES);['fx-from','fx-to'].forEach((id,i)=>{const sel=document.getElementById(id);sel.innerHTML='';keys.forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=k;sel.appendChild(o);});sel.value=i===0?'USD':'EUR';});}
+function convertFX(){const amt=parseFloat(document.getElementById('fx-amount').value);const from=document.getElementById('fx-from').value;const to=document.getElementById('fx-to').value;const res=document.getElementById('fx-result');if(isNaN(amt)){res.classList.add('hidden');return;}const result=amt/FX_RATES[from]*FX_RATES[to];res.textContent=amt.toFixed(2)+' '+from+' = '+result.toFixed(4)+' '+to;res.classList.remove('hidden');}
+function swapFX(){const f=document.getElementById('fx-from').value,t=document.getElementById('fx-to').value;document.getElementById('fx-from').value=t;document.getElementById('fx-to').value=f;convertFX();}
+
+// ── DUPLICATE REMOVER ─────────────────────────────────────────────────────────
+function removeDups(sort){
+  const lines=document.getElementById('dup-input').value.split('\n');
+  let unique=[...new Set(lines.map(l=>l.trim()))].filter(l=>l!=='');
+  if(sort)unique.sort();
+  const res=document.getElementById('dup-result');
+  res.textContent=unique.join('\n');res.classList.remove('hidden');
+  document.getElementById('dup-actions').style.display='flex';
+}
+
+// ── LOREM IPSUM ───────────────────────────────────────────────────────────────
+const LOREM='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+const WORDS=['the','quick','brown','fox','jumps','over','lazy','dog','lorem','ipsum','dolor','sit','amet','consectetur','adipiscing','elit','sed','eiusmod','tempor','incididunt','labore','dolore','magna','aliqua','enim','minim','veniam','quis','nostrud','exercitation'];
+function genLorem(){
+  const p=Math.min(20,+document.getElementById('lorem-p').value||3);
+  const style=document.getElementById('lorem-style').value;
+  const paras=[];
+  for(let i=0;i<p;i++){
+    if(style==='classic')paras.push(LOREM);
+    else{const wc=40+Math.floor(Math.random()*60);paras.push(Array.from({length:wc},()=>WORDS[Math.floor(Math.random()*WORDS.length)]).join(' ').replace(/^./,c=>c.toUpperCase())+'.');}
+  }
+  const res=document.getElementById('lorem-result');
+  res.textContent=paras.join('\n\n');res.classList.remove('hidden');
+  document.getElementById('lorem-actions').style.display='flex';
+}
+
+// ── MORTGAGE ──────────────────────────────────────────────────────────────────
+function calcMortgage(){
+  const price=parseFloat(document.getElementById('mtg-price').value);
+  const down=parseFloat(document.getElementById('mtg-down').value)||0;
+  const r=parseFloat(document.getElementById('mtg-rate').value)/100/12;
+  const n=parseInt(document.getElementById('mtg-term').value)*12;
+  const res=document.getElementById('mtg-result');
+  if(!price||!r||!n){res.classList.add('hidden');return;}
+  const P=price-down;
+  const emi=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  const total=emi*n;
+  res.textContent='Loan Amount: $'+P.toLocaleString()+'\nMonthly Payment: $'+emi.toFixed(2)+'\nTotal Paid: $'+total.toFixed(0)+'\nTotal Interest: $'+(total-P).toFixed(0);
+  res.classList.remove('hidden');
+}
+
+// ── CHAR FREQUENCY ────────────────────────────────────────────────────────────
+function calcFreq(){
+  const t=document.getElementById('freq-input').value;
+  const res=document.getElementById('freq-result');
+  if(!t.trim()){res.classList.add('hidden');return;}
+  const freq={};
+  for(const c of t.toLowerCase())if(c.match(/[a-z0-9]/))freq[c]=(freq[c]||0)+1;
+  const sorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,15);
+  res.textContent=sorted.map(([c,n])=>c+': '+n+' ('+((n/t.length)*100).toFixed(1)+'%)').join('\n');
+  res.classList.remove('hidden');
+}
+
+// ── URL ENCODER ───────────────────────────────────────────────────────────────
+function doURL(mode){
+  const inp=document.getElementById('url-input').value;
+  const res=document.getElementById('url-result');
+  try{
+    res.textContent=mode==='encode'?encodeURIComponent(inp):decodeURIComponent(inp);
+    res.classList.remove('hidden');
+    document.getElementById('url-actions').style.display='flex';
+  }catch(e){res.textContent='Error: '+e.message;res.classList.remove('hidden');}
+}
+
+// ── INVOICE ───────────────────────────────────────────────────────────────────
+function printInvoice(){
+  const from=document.getElementById('inv-from').value||'Your Name';
+  const to=document.getElementById('inv-to').value||'Client';
+  const item=document.getElementById('inv-item').value||'Services rendered';
+  const amt=document.getElementById('inv-amt').value||'0';
+  const date=document.getElementById('inv-date').value||new Date().toISOString().slice(0,10);
+  const w=window.open('','_blank');
+  w.document.write('<html><head><title>Invoice</title><style>body{font-family:Georgia,serif;max-width:600px;margin:40px auto;color:#1a1612}h1{font-size:2rem;margin-bottom:0}.meta{color:#888;font-size:.9rem;margin-bottom:2rem}.items{width:100%;border-collapse:collapse;margin:2rem 0}.items th{text-align:left;border-bottom:2px solid #ddd;padding:.5rem}.items td{padding:.5rem;border-bottom:1px solid #eee}.total{font-size:1.4rem;font-weight:bold;text-align:right;margin-top:1rem}@media print{}</style></head><body><h1>INVOICE</h1><div class="meta">Date: '+date+'</div><p><strong>From:</strong> '+from+'</p><p><strong>To:</strong> '+to+'</p><table class="items"><tr><th>Description</th><th>Amount</th></tr><tr><td>'+item+'</td><td>$'+parseFloat(amt).toFixed(2)+'</td></tr></table><div class="total">Total: $'+parseFloat(amt).toFixed(2)+'</div></body></html>');
+  w.document.close();w.print();
+}
+
+// ── HASH GENERATOR ────────────────────────────────────────────────────────────
+async function genHash(){
+  const t=document.getElementById('hash-input').value;
+  if(!t){document.getElementById('hash-256').textContent='';document.getElementById('hash-1').textContent='';return;}
+  const enc=new TextEncoder().encode(t);
+  const h256=await crypto.subtle.digest('SHA-256',enc);
+  const h1=await crypto.subtle.digest('SHA-1',enc);
+  const toHex=buf=>[...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  document.getElementById('hash-256').textContent=toHex(h256);
+  document.getElementById('hash-1').textContent=toHex(h1);
+}
+
+// ── REGEX TESTER ──────────────────────────────────────────────────────────────
+function testRegex(){
+  const pat=document.getElementById('rx-pattern').value;
+  const flags=document.getElementById('rx-flags').value;
+  const inp=document.getElementById('rx-input').value;
+  const res=document.getElementById('rx-result');
+  if(!pat||!inp){res.classList.add('hidden');return;}
+  try{
+    const rx=new RegExp(pat,flags);
+    const matches=[...inp.matchAll(new RegExp(pat,flags.includes('g')?flags:flags+'g'))];
+    if(matches.length===0){res.textContent='No matches found';res.classList.remove('hidden');return;}
+    res.textContent=matches.length+' match'+(matches.length>1?'es':'')+' found:\n'+matches.map((m,i)=>(i+1)+'. "'+m[0]+'" at index '+m.index).join('\n');
+    res.classList.remove('hidden');
+  }catch(e){res.textContent='Invalid regex: '+e.message;res.classList.remove('hidden');}
+}
+
+// ── UTILS ─────────────────────────────────────────────────────────────────────
 function copyEl(id,fId){navigator.clipboard.writeText(document.getElementById(id).textContent);flash(fId);}
 function flash(id){const el=document.getElementById(id);if(!el)return;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800);}
 
-// INIT
-genPw();setupUnit();updateColor('#3b82f6');
+// ── INIT ──────────────────────────────────────────────────────────────────────
+genPw();setupUnit();updateColor('#3b82f6');setupFX();
+document.getElementById('inv-date').value=new Date().toISOString().slice(0,10);
 </script>
 </body>
 </html>
