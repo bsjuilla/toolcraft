@@ -6,8 +6,8 @@
 <link rel="icon" type="image/jpeg" href="/favicon.jpg"/>
 <link rel="shortcut icon" href="/favicon.jpg"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="ToolCraft — 33 free browser tools. Word counter, password generator, QR code, BMI, unit converter, currency converter, loan calculator and more. No sign-up, no data collected."/>
-<title>ToolCraft — 33 Free Browser Tools</title>
+<meta name="description" content="ToolCraft — 48 free browser tools. Word counter, password generator, QR code, BMI, unit converter, CSS generator, finance calculators, health tools and more. No sign-up, no data collected."/>
+<title>ToolCraft — 48 Free Browser Tools</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5652501264934418" crossorigin="anonymous"></script>
 <style>
@@ -97,7 +97,7 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify
     <span class="logo-name">ToolCraft</span>
     <span class="logo-tag">Free Browser Tools</span>
   </div>
-  <div class="header-count" id="tool-count">33 Tools &middot; No Sign-up</div>
+  <div class="header-count" id="tool-count">48 Tools &middot; No Sign-up</div>
 </header>
 
 <div class="hero">
@@ -603,6 +603,233 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify
     </div>
   </div>
 
+  <!-- 34. CSS GRADIENT GENERATOR -->
+  <div class="tool-card active" data-tool="developer" data-keywords="css gradient generator background linear radial design color">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">CSS</div><div><div class="card-title">CSS Gradient Generator</div><div class="card-subtitle">Linear &amp; radial gradients with live preview</div></div></div>
+    <div class="card-body">
+      <div style="height:70px;border-radius:4px;border:1px solid var(--border);margin-bottom:.7rem" id="grad-preview"></div>
+      <select id="grad-type" onchange="updateGrad()" style="margin-bottom:.6rem"><option value="linear">Linear</option><option value="radial">Radial</option></select>
+      <div class="input-row">
+        <div><label class="input-label">Color 1</label><input type="color" id="grad-c1" value="#c0392b" oninput="updateGrad()" style="width:100%;height:38px;padding:2px;border-radius:4px;border:1px solid var(--border);background:var(--bg);cursor:pointer"/></div>
+        <div><label class="input-label">Color 2</label><input type="color" id="grad-c2" value="#1a1612" oninput="updateGrad()" style="width:100%;height:38px;padding:2px;border-radius:4px;border:1px solid var(--border);background:var(--bg);cursor:pointer"/></div>
+      </div>
+      <label class="input-label">Angle (linear only): <strong id="grad-angle-display">135</strong>°</label>
+      <input type="range" id="grad-angle" min="0" max="360" value="135" oninput="document.getElementById('grad-angle-display').textContent=this.value;updateGrad()" style="width:100%;accent-color:var(--ink)"/>
+      <div class="result-box hidden" id="grad-result" style="font-family:monospace;font-size:.8rem"></div>
+      <div class="btn-row"><button class="btn btn-ghost" onclick="copyEl('grad-result','grad-copied')">Copy CSS</button><span class="copied" id="grad-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 35. BOX SHADOW GENERATOR -->
+  <div class="tool-card active" data-tool="developer" data-keywords="css box shadow generator design web developer">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">&#9633;</div><div><div class="card-title">Box Shadow Generator</div><div class="card-subtitle">Visual CSS box-shadow builder</div></div></div>
+    <div class="card-body">
+      <div style="height:80px;display:flex;align-items:center;justify-content:center;margin-bottom:.7rem">
+        <div id="shadow-preview" style="width:60px;height:60px;background:var(--surface);border:1px solid var(--border);border-radius:4px"></div>
+      </div>
+      <div class="input-row">
+        <div><label class="input-label">H-offset (px)</label><input type="number" id="sh-x" value="4" oninput="updateShadow()"/></div>
+        <div><label class="input-label">V-offset (px)</label><input type="number" id="sh-y" value="4" oninput="updateShadow()"/></div>
+      </div>
+      <div class="input-row">
+        <div><label class="input-label">Blur (px)</label><input type="number" id="sh-blur" value="10" oninput="updateShadow()"/></div>
+        <div><label class="input-label">Spread (px)</label><input type="number" id="sh-spread" value="0" oninput="updateShadow()"/></div>
+      </div>
+      <div class="input-row">
+        <div><label class="input-label">Color</label><input type="color" id="sh-color" value="#1a1612" oninput="updateShadow()" style="width:100%;height:38px;padding:2px;border-radius:4px;border:1px solid var(--border);background:var(--bg);cursor:pointer"/></div>
+        <div><label class="input-label">Opacity</label><input type="range" id="sh-opacity" min="0" max="100" value="30" oninput="updateShadow()" style="margin-top:.8rem;accent-color:var(--ink)"/></div>
+      </div>
+      <div class="result-box hidden" id="sh-result" style="font-family:monospace;font-size:.8rem"></div>
+      <div class="btn-row"><button class="btn btn-ghost" onclick="copyEl('sh-result','sh-copied')">Copy CSS</button><span class="copied" id="sh-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 36. COLOR PALETTE GENERATOR -->
+  <div class="tool-card active" data-tool="design" data-keywords="color palette generator scheme complementary analogous design">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">&#9632;&#9632;</div><div><div class="card-title">Color Palette Generator</div><div class="card-subtitle">Generate harmonious color palettes</div></div></div>
+    <div class="card-body">
+      <div style="display:flex;gap:.6rem;align-items:center;margin-bottom:.7rem">
+        <input type="color" id="pal-base" value="#c0392b" oninput="genPalette()" style="width:48px;height:40px;padding:2px;border-radius:4px;border:1px solid var(--border);background:var(--bg);cursor:pointer;flex-shrink:0"/>
+        <select id="pal-type" onchange="genPalette()" style="flex:1"><option value="complementary">Complementary</option><option value="analogous">Analogous</option><option value="triadic">Triadic</option><option value="shades">Shades</option></select>
+      </div>
+      <div id="pal-swatches" style="display:flex;gap:.4rem;flex-wrap:wrap"></div>
+      <div class="result-box hidden" id="pal-result" style="font-family:monospace;font-size:.78rem;margin-top:.7rem"></div>
+      <div class="btn-row"><button class="btn btn-ghost" onclick="copyEl('pal-result','pal-copied')">Copy HEX Values</button><span class="copied" id="pal-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 37. JWT DECODER -->
+  <div class="tool-card active" data-tool="developer" data-keywords="jwt decoder json web token decode header payload developer">
+    <div class="card-header"><div class="card-icon" style="font-size:.6rem">JWT</div><div><div class="card-title">JWT Decoder</div><div class="card-subtitle">Decode &amp; inspect JSON Web Tokens</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Paste JWT Token</label>
+      <textarea id="jwt-input" rows="3" placeholder="eyJhbGciOiJIUzI1NiJ9..." oninput="decodeJWT()"></textarea>
+      <div class="result-box hidden" id="jwt-header" style="font-family:monospace;font-size:.78rem"></div>
+      <div class="result-box hidden" id="jwt-payload" style="font-family:monospace;font-size:.78rem;margin-top:.4rem"></div>
+      <div id="jwt-status" style="font-size:.78rem;margin-top:.4rem;color:var(--ink-soft)"></div>
+    </div>
+  </div>
+
+  <!-- 38. DIFF CHECKER -->
+  <div class="tool-card active" data-tool="developer" data-keywords="diff checker compare text difference two files developer">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">&#8660;</div><div><div class="card-title">Diff Checker</div><div class="card-subtitle">Compare two texts line by line</div></div></div>
+    <div class="card-body">
+      <div class="input-row">
+        <div><label class="input-label">Original</label><textarea id="diff-a" rows="5" placeholder="Paste original text…"></textarea></div>
+        <div><label class="input-label">Modified</label><textarea id="diff-b" rows="5" placeholder="Paste modified text…"></textarea></div>
+      </div>
+      <button class="btn" onclick="runDiff()">Compare</button>
+      <div id="diff-result" style="margin-top:.7rem;font-family:monospace;font-size:.8rem;max-height:200px;overflow-y:auto"></div>
+    </div>
+  </div>
+
+  <!-- 39. MARKDOWN PREVIEW -->
+  <div class="tool-card active" data-tool="developer" data-keywords="markdown preview render live editor md developer">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">MD</div><div><div class="card-title">Markdown Preview</div><div class="card-subtitle">Live markdown to HTML renderer</div></div></div>
+    <div class="card-body">
+      <textarea id="md-input" rows="6" placeholder="# Hello&#10;**Bold**, *italic*, `code`&#10;- List item" oninput="renderMD()"></textarea>
+      <label class="input-label">Preview</label>
+      <div id="md-preview" style="padding:.7rem;background:var(--bg);border:1px solid var(--border);border-radius:4px;min-height:60px;font-size:.87rem;line-height:1.6"></div>
+    </div>
+  </div>
+
+  <!-- 40. META TAG GENERATOR -->
+  <div class="tool-card active" data-tool="developer" data-keywords="meta tag generator seo og open graph twitter card html head">
+    <div class="card-header"><div class="card-icon" style="font-size:.6rem">SEO</div><div><div class="card-title">Meta Tag Generator</div><div class="card-subtitle">SEO &amp; Open Graph meta tags</div></div></div>
+    <div class="card-body">
+      <input type="text" id="meta-title" placeholder="Page title" style="margin-bottom:.4rem" oninput="genMeta()"/>
+      <textarea id="meta-desc" rows="2" placeholder="Page description (150-160 chars)" oninput="genMeta()"></textarea>
+      <input type="text" id="meta-url" placeholder="https://yoursite.com" style="margin-top:.4rem" oninput="genMeta()"/>
+      <input type="text" id="meta-img" placeholder="https://yoursite.com/image.jpg" style="margin-top:.4rem" oninput="genMeta()"/>
+      <div class="result-box hidden" id="meta-result" style="font-family:monospace;font-size:.75rem;max-height:160px;overflow-y:auto"></div>
+      <div class="btn-row"><button class="btn btn-ghost" onclick="copyEl('meta-result','meta-copied')">Copy HTML</button><span class="copied" id="meta-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 41. ROBOTS.TXT GENERATOR -->
+  <div class="tool-card active" data-tool="developer" data-keywords="robots txt generator seo crawl disallow sitemap">
+    <div class="card-header"><div class="card-icon" style="font-size:.6rem">BOT</div><div><div class="card-title">Robots.txt Generator</div><div class="card-subtitle">Generate robots.txt for your site</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Sitemap URL (optional)</label>
+      <input type="text" id="rob-sitemap" placeholder="https://yoursite.com/sitemap.xml" oninput="genRobots()"/>
+      <label class="input-label">Allow all crawlers?</label>
+      <select id="rob-mode" onchange="genRobots()" style="margin-bottom:.4rem">
+        <option value="all">Allow all bots</option>
+        <option value="none">Block all bots</option>
+        <option value="custom">Custom rules</option>
+      </select>
+      <div id="rob-custom" style="display:none">
+        <input type="text" id="rob-disallow" placeholder="Disallow: /admin/" style="margin-bottom:.4rem" oninput="genRobots()"/>
+      </div>
+      <div class="result-box hidden" id="rob-result" style="font-family:monospace;font-size:.8rem"></div>
+      <div class="btn-row"><button class="btn btn-ghost" onclick="copyEl('rob-result','rob-copied')">Copy</button><span class="copied" id="rob-copied">Copied!</span></div>
+    </div>
+  </div>
+
+  <!-- 42. VAT / TAX CALCULATOR -->
+  <div class="tool-card active" data-tool="finance" data-keywords="vat tax calculator gst percentage inclusive exclusive price">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">VAT</div><div><div class="card-title">VAT / Tax Calculator</div><div class="card-subtitle">Add or remove tax from any price</div></div></div>
+    <div class="card-body">
+      <input type="number" id="vat-amount" placeholder="Enter amount" oninput="calcVAT()"/>
+      <label class="input-label">Tax Rate (%)</label>
+      <input type="number" id="vat-rate" value="15" oninput="calcVAT()"/>
+      <select id="vat-mode" onchange="calcVAT()" style="margin-top:.6rem">
+        <option value="add">Add tax to price</option>
+        <option value="remove">Remove tax from price</option>
+      </select>
+      <div class="result-box hidden" id="vat-result"></div>
+    </div>
+  </div>
+
+  <!-- 43. SALARY TO HOURLY -->
+  <div class="tool-card active" data-tool="finance" data-keywords="salary hourly rate converter annual monthly weekly pay calculator">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">$/h</div><div><div class="card-title">Salary Converter</div><div class="card-subtitle">Annual, monthly, weekly &amp; hourly</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Annual Salary ($)</label>
+      <input type="number" id="sal-annual" placeholder="e.g. 50000" oninput="calcSalary('annual')"/>
+      <label class="input-label">Monthly ($)</label>
+      <input type="number" id="sal-monthly" placeholder="" oninput="calcSalary('monthly')"/>
+      <label class="input-label">Weekly ($)</label>
+      <input type="number" id="sal-weekly" placeholder="" oninput="calcSalary('weekly')"/>
+      <label class="input-label">Hourly ($) — based on 40h/week</label>
+      <input type="number" id="sal-hourly" placeholder="" oninput="calcSalary('hourly')"/>
+    </div>
+  </div>
+
+  <!-- 44. ROI CALCULATOR -->
+  <div class="tool-card active" data-tool="finance" data-keywords="roi return on investment calculator profit gain finance">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">ROI</div><div><div class="card-title">ROI Calculator</div><div class="card-subtitle">Return on investment &amp; profit</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Initial Investment ($)</label>
+      <input type="number" id="roi-invest" placeholder="e.g. 1000" oninput="calcROI()"/>
+      <label class="input-label">Final Value ($)</label>
+      <input type="number" id="roi-final" placeholder="e.g. 1350" oninput="calcROI()"/>
+      <label class="input-label">Time Period (years, optional)</label>
+      <input type="number" id="roi-years" placeholder="e.g. 2" oninput="calcROI()"/>
+      <div class="result-box hidden" id="roi-result"></div>
+    </div>
+  </div>
+
+  <!-- 45. BREAK-EVEN CALCULATOR -->
+  <div class="tool-card active" data-tool="finance" data-keywords="break even calculator business fixed variable cost profit">
+    <div class="card-header"><div class="card-icon" style="font-size:.6rem">B/E</div><div><div class="card-title">Break-Even Calculator</div><div class="card-subtitle">Units needed to break even</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Fixed Costs ($)</label>
+      <input type="number" id="be-fixed" placeholder="e.g. 5000" oninput="calcBE()"/>
+      <div class="input-row">
+        <div><label class="input-label">Selling Price ($)</label><input type="number" id="be-price" placeholder="e.g. 25" oninput="calcBE()"/></div>
+        <div><label class="input-label">Variable Cost ($)</label><input type="number" id="be-var" placeholder="e.g. 10" oninput="calcBE()"/></div>
+      </div>
+      <div class="result-box hidden" id="be-result"></div>
+    </div>
+  </div>
+
+  <!-- 46. PREGNANCY DUE DATE -->
+  <div class="tool-card active" data-tool="health" data-keywords="pregnancy due date calculator last period weeks trimester baby">
+    <div class="card-header"><div class="card-icon">&#128118;</div><div><div class="card-title">Due Date Calculator</div><div class="card-subtitle">Pregnancy due date &amp; trimester info</div></div></div>
+    <div class="card-body">
+      <label class="input-label">First day of last period</label>
+      <input type="date" id="preg-lmp" onchange="calcPregnancy()"/>
+      <div class="result-box hidden" id="preg-result"></div>
+    </div>
+  </div>
+
+  <!-- 47. WATER INTAKE CALCULATOR -->
+  <div class="tool-card active" data-tool="health" data-keywords="water intake calculator daily hydration drink health weight">
+    <div class="card-header"><div class="card-icon">&#128167;</div><div><div class="card-title">Water Intake Calc</div><div class="card-subtitle">Daily water recommendation</div></div></div>
+    <div class="card-body">
+      <label class="input-label">Weight (kg)</label>
+      <input type="number" id="water-w" placeholder="e.g. 70" oninput="calcWater()"/>
+      <label class="input-label">Activity Level</label>
+      <select id="water-act" onchange="calcWater()">
+        <option value="1">Sedentary</option>
+        <option value="1.2">Lightly active</option>
+        <option value="1.4">Moderately active</option>
+        <option value="1.6">Very active</option>
+      </select>
+      <label class="input-label">Climate</label>
+      <select id="water-climate" onchange="calcWater()">
+        <option value="0">Temperate</option>
+        <option value="0.5">Hot / tropical</option>
+      </select>
+      <div class="result-box hidden" id="water-result"></div>
+    </div>
+  </div>
+
+  <!-- 48. MACRO CALCULATOR -->
+  <div class="tool-card active" data-tool="health" data-keywords="macro calculator protein carbs fat diet nutrition fitness calories">
+    <div class="card-header"><div class="card-icon" style="font-size:.65rem">&#127859;</div><div><div class="card-title">Macro Calculator</div><div class="card-subtitle">Daily protein, carbs &amp; fat targets</div></div></div>
+    <div class="card-body">
+      <div class="input-row">
+        <div><label class="input-label">Weight (kg)</label><input type="number" id="mac-w" placeholder="70" oninput="calcMacros()"/></div>
+        <div><label class="input-label">Goal</label><select id="mac-goal" onchange="calcMacros()"><option value="cut">Lose fat</option><option value="maintain" selected>Maintain</option><option value="bulk">Gain muscle</option></select></div>
+      </div>
+      <label class="input-label">Daily Calories (from Calorie Calc)</label>
+      <input type="number" id="mac-cal" placeholder="e.g. 2200" oninput="calcMacros()"/>
+      <div class="result-box hidden" id="mac-result"></div>
+    </div>
+  </div>
+
 </div><!-- /grid -->
 
 <footer>
@@ -1099,6 +1326,238 @@ function testRegex(){
   }catch(e){res.textContent='Invalid regex: '+e.message;res.classList.remove('hidden');}
 }
 
+
+// ── CSS GRADIENT GENERATOR ────────────────────────────────────────────────────
+function updateGrad(){
+  const type=document.getElementById('grad-type').value;
+  const c1=document.getElementById('grad-c1').value;
+  const c2=document.getElementById('grad-c2').value;
+  const angle=document.getElementById('grad-angle').value;
+  const css=type==='linear'?`linear-gradient(${angle}deg, ${c1}, ${c2})`:`radial-gradient(circle, ${c1}, ${c2})`;
+  document.getElementById('grad-preview').style.background=css;
+  const res=document.getElementById('grad-result');
+  res.textContent='background: '+css+';';
+  res.classList.remove('hidden');
+}
+
+// ── BOX SHADOW GENERATOR ──────────────────────────────────────────────────────
+function updateShadow(){
+  const x=document.getElementById('sh-x').value||0;
+  const y=document.getElementById('sh-y').value||0;
+  const blur=document.getElementById('sh-blur').value||0;
+  const spread=document.getElementById('sh-spread').value||0;
+  const color=document.getElementById('sh-color').value;
+  const opacity=(document.getElementById('sh-opacity').value/100).toFixed(2);
+  const r=parseInt(color.slice(1,3),16),g=parseInt(color.slice(3,5),16),b=parseInt(color.slice(5,7),16);
+  const shadow=`${x}px ${y}px ${blur}px ${spread}px rgba(${r},${g},${b},${opacity})`;
+  document.getElementById('shadow-preview').style.boxShadow=shadow;
+  const res=document.getElementById('sh-result');
+  res.textContent='box-shadow: '+shadow+';';
+  res.classList.remove('hidden');
+}
+
+// ── COLOR PALETTE GENERATOR ───────────────────────────────────────────────────
+function hexToHSL(hex){
+  let r=parseInt(hex.slice(1,3),16)/255,g=parseInt(hex.slice(3,5),16)/255,b=parseInt(hex.slice(5,7),16)/255;
+  const max=Math.max(r,g,b),min=Math.min(r,g,b);let h,s,l=(max+min)/2;
+  if(max===min){h=s=0;}else{const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=((g-b)/d+(g<b?6:0))/6;break;case g:h=((b-r)/d+2)/6;break;default:h=((r-g)/d+4)/6;}}
+  return{h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};
+}
+function hslToHex(h,s,l){s/=100;l/=100;const k=n=>(n+h/30)%12,a=s*Math.min(l,1-l),f=n=>l-a*Math.max(-1,Math.min(k(n)-3,Math.min(9-k(n),1)));return '#'+[f(0),f(8),f(4)].map(x=>Math.round(x*255).toString(16).padStart(2,'0')).join('');}
+function genPalette(){
+  const base=document.getElementById('pal-base').value;
+  const type=document.getElementById('pal-type').value;
+  const{h,s,l}=hexToHSL(base);
+  let colors=[];
+  if(type==='complementary')colors=[base,hslToHex((h+180)%360,s,l),hslToHex(h,s,Math.min(90,l+20)),hslToHex((h+180)%360,s,Math.min(90,l+20))];
+  else if(type==='analogous')colors=[hslToHex((h-30+360)%360,s,l),hslToHex((h-15+360)%360,s,l),base,hslToHex((h+15)%360,s,l),hslToHex((h+30)%360,s,l)];
+  else if(type==='triadic')colors=[base,hslToHex((h+120)%360,s,l),hslToHex((h+240)%360,s,l)];
+  else colors=[hslToHex(h,s,Math.max(10,l-30)),hslToHex(h,s,Math.max(10,l-15)),base,hslToHex(h,s,Math.min(90,l+15)),hslToHex(h,s,Math.min(90,l+30))];
+  const sw=document.getElementById('pal-swatches');
+  sw.innerHTML=colors.map(c=>`<div onclick="copyStr('${c}','pal-copied')" title="${c}" style="flex:1;min-width:40px;height:50px;background:${c};border-radius:4px;cursor:pointer;border:1px solid var(--border)"></div>`).join('');
+  const res=document.getElementById('pal-result');
+  res.textContent=colors.join('\n');res.classList.remove('hidden');
+}
+
+// ── JWT DECODER ───────────────────────────────────────────────────────────────
+function decodeJWT(){
+  const token=document.getElementById('jwt-input').value.trim();
+  const h=document.getElementById('jwt-header');
+  const p=document.getElementById('jwt-payload');
+  const st=document.getElementById('jwt-status');
+  if(!token){h.classList.add('hidden');p.classList.add('hidden');st.textContent='';return;}
+  const parts=token.split('.');
+  if(parts.length!==3){st.textContent='Invalid JWT format';h.classList.add('hidden');p.classList.add('hidden');return;}
+  try{
+    const dec=s=>JSON.parse(atob(s.replace(/-/g,'+').replace(/_/g,'/')));
+    const header=dec(parts[0]);const payload=dec(parts[1]);
+    h.textContent='Header:\n'+JSON.stringify(header,null,2);h.classList.remove('hidden');
+    p.textContent='Payload:\n'+JSON.stringify(payload,null,2);p.classList.remove('hidden');
+    const exp=payload.exp;
+    if(exp){const expDate=new Date(exp*1000);st.textContent=(expDate>new Date()?'Valid until: ':'Expired: ')+expDate.toLocaleString();}
+    else st.textContent='No expiry claim';
+  }catch(e){st.textContent='Could not decode: '+e.message;}
+}
+
+// ── DIFF CHECKER ──────────────────────────────────────────────────────────────
+function runDiff(){
+  const a=document.getElementById('diff-a').value.split('\n');
+  const b=document.getElementById('diff-b').value.split('\n');
+  const out=[];const max=Math.max(a.length,b.length);
+  for(let i=0;i<max;i++){
+    const la=a[i]??'';const lb=b[i]??'';
+    if(la===lb)out.push(`<div style="padding:2px 6px;font-size:.8rem">&nbsp; ${la||'&nbsp;'}</div>`);
+    else{if(la!==undefined)out.push(`<div style="padding:2px 6px;background:#ffeaea;color:#8b0000;font-size:.8rem">− ${la||'&nbsp;'}</div>`);
+    if(lb!==undefined)out.push(`<div style="padding:2px 6px;background:#eaffea;color:#006400;font-size:.8rem">+ ${lb||'&nbsp;'}</div>`);}
+  }
+  document.getElementById('diff-result').innerHTML=out.length?out.join(''):'<div style="color:var(--ink-soft);font-size:.8rem;padding:.4rem">No differences found ✓</div>';
+}
+
+// ── MARKDOWN PREVIEW ──────────────────────────────────────────────────────────
+function renderMD(){
+  let t=document.getElementById('md-input').value;
+  t=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  t=t.replace(/^### (.+)$/gm,'<h3>$1</h3>');
+  t=t.replace(/^## (.+)$/gm,'<h2>$1</h2>');
+  t=t.replace(/^# (.+)$/gm,'<h1>$1</h1>');
+  t=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  t=t.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  t=t.replace(/`(.+?)`/g,'<code style="background:var(--bg);padding:1px 4px;border-radius:3px;font-family:monospace">$1</code>');
+  t=t.replace(/^- (.+)$/gm,'<li>$1</li>').replace(/(<li>.*<\/li>)/s,'<ul>$1</ul>');
+  t=t.replace(/\n\n/g,'</p><p>').replace(/^(?!<[hul])/,'<p>').replace(/(?<![>])$/,'</p>');
+  document.getElementById('md-preview').innerHTML=t;
+}
+
+// ── META TAG GENERATOR ────────────────────────────────────────────────────────
+function genMeta(){
+  const title=document.getElementById('meta-title').value;
+  const desc=document.getElementById('meta-desc').value;
+  const url=document.getElementById('meta-url').value;
+  const img=document.getElementById('meta-img').value;
+  if(!title&&!desc){document.getElementById('meta-result').classList.add('hidden');return;}
+  let out=`<!-- Primary -->\n<title>${title}</title>\n<meta name="description" content="${desc}">`;
+  if(url)out+=`\n<link rel="canonical" href="${url}">`;
+  out+=`\n\n<!-- Open Graph -->\n<meta property="og:title" content="${title}">\n<meta property="og:description" content="${desc}">`;
+  if(url)out+=`\n<meta property="og:url" content="${url}">`;
+  if(img)out+=`\n<meta property="og:image" content="${img}">`;
+  out+=`\n\n<!-- Twitter -->\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="${title}">\n<meta name="twitter:description" content="${desc}">`;
+  if(img)out+=`\n<meta name="twitter:image" content="${img}">`;
+  const res=document.getElementById('meta-result');res.textContent=out;res.classList.remove('hidden');
+}
+
+// ── ROBOTS.TXT GENERATOR ─────────────────────────────────────────────────────
+function genRobots(){
+  const mode=document.getElementById('rob-mode').value;
+  const sitemap=document.getElementById('rob-sitemap').value;
+  const disallow=document.getElementById('rob-disallow').value;
+  document.getElementById('rob-custom').style.display=mode==='custom'?'block':'none';
+  let out='User-agent: *\n';
+  if(mode==='all')out+='Allow: /\n';
+  else if(mode==='none')out+='Disallow: /\n';
+  else out+=(disallow||'Disallow: /admin/')+'\nAllow: /\n';
+  if(sitemap)out+='\nSitemap: '+sitemap;
+  const res=document.getElementById('rob-result');res.textContent=out;res.classList.remove('hidden');
+}
+
+// ── VAT CALCULATOR ────────────────────────────────────────────────────────────
+function calcVAT(){
+  const amt=parseFloat(document.getElementById('vat-amount').value);
+  const rate=parseFloat(document.getElementById('vat-rate').value)||0;
+  const mode=document.getElementById('vat-mode').value;
+  const res=document.getElementById('vat-result');
+  if(isNaN(amt)){res.classList.add('hidden');return;}
+  let net,tax,gross;
+  if(mode==='add'){net=amt;tax=amt*rate/100;gross=amt+tax;}
+  else{gross=amt;net=amt/(1+rate/100);tax=gross-net;}
+  res.textContent='Net (ex-tax): $'+net.toFixed(2)+'\nTax ('+rate+'%): $'+tax.toFixed(2)+'\nGross (inc-tax): $'+gross.toFixed(2);
+  res.classList.remove('hidden');
+}
+
+// ── SALARY CONVERTER ──────────────────────────────────────────────────────────
+function calcSalary(from){
+  const ids={annual:'sal-annual',monthly:'sal-monthly',weekly:'sal-weekly',hourly:'sal-hourly'};
+  const val=parseFloat(document.getElementById(ids[from]).value);
+  if(isNaN(val))return;
+  let annual;
+  if(from==='annual')annual=val;
+  else if(from==='monthly')annual=val*12;
+  else if(from==='weekly')annual=val*52;
+  else annual=val*40*52;
+  if(from!=='annual')document.getElementById('sal-annual').value=annual.toFixed(2);
+  if(from!=='monthly')document.getElementById('sal-monthly').value=(annual/12).toFixed(2);
+  if(from!=='weekly')document.getElementById('sal-weekly').value=(annual/52).toFixed(2);
+  if(from!=='hourly')document.getElementById('sal-hourly').value=(annual/52/40).toFixed(2);
+}
+
+// ── ROI CALCULATOR ────────────────────────────────────────────────────────────
+function calcROI(){
+  const invest=parseFloat(document.getElementById('roi-invest').value);
+  const final=parseFloat(document.getElementById('roi-final').value);
+  const years=parseFloat(document.getElementById('roi-years').value);
+  const res=document.getElementById('roi-result');
+  if(!invest||!final){res.classList.add('hidden');return;}
+  const gain=final-invest;const roi=(gain/invest*100).toFixed(2);
+  let out='Gain/Loss: $'+gain.toFixed(2)+'\nROI: '+roi+'%';
+  if(years){const annualROI=(Math.pow(final/invest,1/years)-1)*100;out+='\nAnnualized ROI: '+annualROI.toFixed(2)+'%';}
+  res.textContent=out;res.classList.remove('hidden');
+}
+
+// ── BREAK-EVEN CALCULATOR ─────────────────────────────────────────────────────
+function calcBE(){
+  const fixed=parseFloat(document.getElementById('be-fixed').value);
+  const price=parseFloat(document.getElementById('be-price').value);
+  const varCost=parseFloat(document.getElementById('be-var').value);
+  const res=document.getElementById('be-result');
+  if(!fixed||!price||isNaN(varCost)){res.classList.add('hidden');return;}
+  const contrib=price-varCost;
+  if(contrib<=0){res.textContent='Selling price must exceed variable cost';res.classList.remove('hidden');return;}
+  const units=Math.ceil(fixed/contrib);
+  res.textContent='Break-even units: '+units.toLocaleString()+'\nBreak-even revenue: $'+(units*price).toFixed(2)+'\nContribution margin: $'+contrib.toFixed(2)+' per unit';
+  res.classList.remove('hidden');
+}
+
+// ── PREGNANCY DUE DATE ────────────────────────────────────────────────────────
+function calcPregnancy(){
+  const lmp=new Date(document.getElementById('preg-lmp').value);
+  const res=document.getElementById('preg-result');
+  if(isNaN(lmp)){res.classList.add('hidden');return;}
+  const due=new Date(lmp);due.setDate(due.getDate()+280);
+  const now=new Date();const daysPreg=Math.floor((now-lmp)/86400000);
+  const weeksPreg=Math.floor(daysPreg/7);const dayRem=daysPreg%7;
+  const trimester=weeksPreg<13?'1st':weeksPreg<27?'2nd':'3rd';
+  const daysLeft=Math.ceil((due-now)/86400000);
+  res.textContent='Due date: '+due.toDateString()+'\nCurrently: '+weeksPreg+' weeks, '+dayRem+' days pregnant\nTrimester: '+trimester+'\nDays until due: '+(daysLeft>0?daysLeft:'Baby may have arrived!');
+  res.classList.remove('hidden');
+}
+
+// ── WATER INTAKE ──────────────────────────────────────────────────────────────
+function calcWater(){
+  const w=parseFloat(document.getElementById('water-w').value);
+  const act=parseFloat(document.getElementById('water-act').value);
+  const climate=parseFloat(document.getElementById('water-climate').value);
+  const res=document.getElementById('water-result');
+  if(!w){res.classList.add('hidden');return;}
+  const base=w*0.033*act+climate;
+  res.textContent='Daily water intake: '+base.toFixed(1)+' litres\nIn ml: '+Math.round(base*1000)+' ml\nIn glasses (250ml): ~'+Math.round(base*1000/250)+' glasses';
+  res.classList.remove('hidden');
+}
+
+// ── MACRO CALCULATOR ──────────────────────────────────────────────────────────
+function calcMacros(){
+  const w=parseFloat(document.getElementById('mac-w').value);
+  const goal=document.getElementById('mac-goal').value;
+  const cal=parseFloat(document.getElementById('mac-cal').value);
+  const res=document.getElementById('mac-result');
+  if(!w||!cal){res.classList.add('hidden');return;}
+  let protein,fatPct;
+  if(goal==='cut'){protein=w*2.2;fatPct=0.25;}
+  else if(goal==='bulk'){protein=w*2.0;fatPct=0.25;}
+  else{protein=w*1.8;fatPct=0.30;}
+  const proteinCal=protein*4;const fatCal=cal*fatPct;const fat=fatCal/9;const carbCal=cal-proteinCal-fatCal;const carbs=carbCal/4;
+  res.textContent='Protein: '+Math.round(protein)+'g ('+Math.round(proteinCal)+' kcal)\nCarbs: '+Math.round(carbs)+'g ('+Math.round(carbCal)+' kcal)\nFat: '+Math.round(fat)+'g ('+Math.round(fatCal)+' kcal)\nTotal: '+Math.round(proteinCal+carbCal+fatCal)+' kcal';
+  res.classList.remove('hidden');
+}
+
 // ── UTILS ─────────────────────────────────────────────────────────────────────
 function copyEl(id,fId){navigator.clipboard.writeText(document.getElementById(id).textContent);flash(fId);}
 function flash(id){const el=document.getElementById(id);if(!el)return;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800);}
@@ -1106,6 +1565,7 @@ function flash(id){const el=document.getElementById(id);if(!el)return;el.classLi
 // ── INIT ──────────────────────────────────────────────────────────────────────
 genPw();setupUnit();updateColor('#3b82f6');setupFX();
 document.getElementById('inv-date').value=new Date().toISOString().slice(0,10);
+updateGrad();updateShadow();genPalette();genRobots();
 </script>
 </body>
 </html>
