@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="About ToolCraft — the team behind 48 free browser tools. Contact us with questions, feedback, or suggestions."/>
+<title>About & Contact — ToolCraft</title>
+<link rel="icon" type="image/jpeg" href="/favicon.jpg"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f5f0e8;--surface:#faf7f2;--ink:#1a1612;--ink-soft:#5a4e42;--accent:#c0392b;--border:#d4c9b8;--green:#1a7a4a}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;line-height:1.8}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:150px;pointer-events:none;z-index:9999;opacity:.5}
+nav{padding:1.5rem 3rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.logo-name{font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;letter-spacing:-.5px;color:var(--ink)}
+.logo-tag{font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.nav-back{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border:1px solid var(--border);padding:.4rem .9rem;border-radius:2px;transition:all .2s}
+.nav-back:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* HERO */
+.hero{padding:5rem 3rem 4rem;max-width:900px;margin:0 auto}
+.page-label{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-2px;line-height:1.05}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{margin-top:1.2rem;font-size:1rem;color:var(--ink-soft);max-width:560px;line-height:1.8}
+
+/* STATS STRIP */
+.stats-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 3rem;display:flex;gap:0;justify-content:center}
+.stat{text-align:center;flex:1;max-width:200px;padding:0 2rem;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;letter-spacing:-2px;color:var(--ink);display:block}
+.stat-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:.25rem}
+
+/* ABOUT SECTION */
+.section{max-width:900px;margin:0 auto;padding:4rem 3rem}
+.section-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;letter-spacing:-1px;margin-bottom:1.2rem}
+.section p{font-size:.95rem;color:var(--ink-soft);margin-bottom:1rem}
+.section p strong{color:var(--ink);font-weight:500}
+
+/* TEAM CARDS */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem;margin-top:1.5rem}
+.team-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1.6rem 1.4rem;transition:box-shadow .25s,transform .25s}
+.team-card:hover{box-shadow:0 6px 24px rgba(26,22,18,.08);transform:translateY(-2px)}
+.team-avatar{width:48px;height:48px;background:var(--ink);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--bg);font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:1rem}
+.team-role{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;font-weight:500}
+.team-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.team-desc{font-size:.8rem;color:var(--ink-soft);line-height:1.6}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1.5rem}
+.value-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1.4rem}
+.value-icon{font-size:1.4rem;margin-bottom:.6rem}
+.value-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.value-desc{font-size:.8rem;color:var(--ink-soft);line-height:1.6}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:0 3rem}
+
+/* CONTACT SECTION */
+.contact-section{max-width:700px;margin:0 auto;padding:4rem 3rem 6rem}
+.contact-section h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;letter-spacing:-1px;margin-bottom:.6rem}
+.contact-section .sub{font-size:.95rem;color:var(--ink-soft);margin-bottom:2.5rem}
+
+/* FORM */
+.form-group{margin-bottom:1.2rem}
+.form-label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:.4rem;font-weight:500}
+.form-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.78rem 1rem;font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;resize:vertical}
+.form-input:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(26,22,18,.06)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-submit{width:100%;padding:.85rem 1.5rem;background:var(--ink);color:var(--bg);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .1s;margin-top:.5rem}
+.btn-submit:hover{background:var(--accent)}
+.btn-submit:active{transform:scale(.99)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+
+.success-msg{display:none;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:4px;padding:1.2rem 1.4rem;margin-top:1.2rem;font-size:.9rem;color:var(--green)}
+.error-msg{display:none;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;padding:1.2rem 1.4rem;margin-top:1.2rem;font-size:.9rem;color:var(--accent)}
+
+footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:.73rem;color:var(--ink-soft);flex-wrap:wrap;gap:.5rem}
+footer a{color:var(--ink-soft);text-decoration:none}
+footer a:hover{color:var(--accent)}
+
+@media(max-width:640px){
+  nav,.hero,.stats-strip,.section,.contact-section,footer{padding-left:1.2rem;padding-right:1.2rem}
+  .section-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .stats-strip{flex-wrap:wrap}
+  .stat{border-right:none;border-bottom:1px solid var(--border);padding:1.2rem 0}
+  .stat:last-child{border-bottom:none}
+  .divider{margin:0 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">
+    <span class="logo-name">ToolCraft</span>
+    <span class="logo-tag">Free Browser Tools</span>
+  </a>
+  <a href="/" class="nav-back">&#8592; Back to Tools</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="page-label">Our Story</div>
+  <h1>Built by builders,<br/>for <em>everyone.</em></h1>
+  <p>ToolCraft was born from a simple frustration — too many useful tools scattered across a dozen different websites, each demanding sign-ups, charging fees, or harvesting your data. We decided to fix that.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat"><span class="stat-num">48</span><span class="stat-label">Free Tools</span></div>
+  <div class="stat"><span class="stat-num">0</span><span class="stat-label">Data Collected</span></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Browser-Based</span></div>
+  <div class="stat"><span class="stat-num">&#8734;</span><span class="stat-label">Free Forever</span></div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="section-grid">
+    <div>
+      <h2>What is<br/>ToolCraft?</h2>
+      <p>ToolCraft is an independent, free-to-use utility platform housing <strong>48 browser-based tools</strong> — from password generators and unit converters to CSS gradient builders, JWT decoders, and financial calculators.</p>
+      <p>Every single tool runs <strong>entirely within your browser</strong>. Nothing you type is ever transmitted to our servers. No accounts. No paywalls. No subscriptions. Just tools that work.</p>
+      <p>We're sustained by unobtrusive advertising so we can keep everything free, forever.</p>
+    </div>
+    <div>
+      <h2>Our<br/>Philosophy</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">&#128274;</div>
+          <div class="value-title">Privacy First</div>
+          <div class="value-desc">Your data stays on your device. Always. No exceptions.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#9889;</div>
+          <div class="value-title">Instant & Fast</div>
+          <div class="value-desc">No loading screens, no servers. Everything is instant.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#127775;</div>
+          <div class="value-title">Free Forever</div>
+          <div class="value-desc">Every tool was, is, and always will be free to use.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#127919;</div>
+          <div class="value-title">No Fluff</div>
+          <div class="value-desc">Clean interfaces. No popups, no dark patterns, no noise.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TEAM -->
+<div class="section">
+  <div class="page-label">The Team</div>
+  <h2>A collective of<br/>independent builders.</h2>
+  <p style="max-width:560px;font-size:.95rem;color:var(--ink-soft)">ToolCraft is developed and maintained by a small, geographically distributed team of developers and designers who share a belief that useful software should be accessible to everyone.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">A</div>
+      <div class="team-role">Founder &amp; Lead Engineer</div>
+      <div class="team-name">Architect Zero</div>
+      <div class="team-desc">The original vision behind ToolCraft. Obsessed with performance, privacy, and building things that just work.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">C</div>
+      <div class="team-role">UI / UX Design</div>
+      <div class="team-name">The Cartographer</div>
+      <div class="team-desc">Responsible for the interface, typography, and making sure every pixel has a purpose.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">E</div>
+      <div class="team-role">Core Development</div>
+      <div class="team-name">Engine Room</div>
+      <div class="team-desc">Builds the logic behind every tool. Prefers elegant code over clever code, every time.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">S</div>
+      <div class="team-role">Growth &amp; SEO</div>
+      <div class="team-name">Signal Keeper</div>
+      <div class="team-desc">Makes sure ToolCraft gets discovered by the people who need it most.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <div class="page-label">Get in Touch</div>
+  <h2>We'd love to<br/>hear from you.</h2>
+  <p class="sub">Have a tool suggestion? Found a bug? Want to collaborate? Send us a message and we'll get back to you within 48 hours.</p>
+
+  <!-- Web3Forms — replace YOUR_ACCESS_KEY with your key from web3forms.com -->
+  <form id="contact-form">
+    <input type="hidden" name="access_key" value="5055a599-3d10-49a0-ab68-69d75fd544f6"/>
+    <input type="hidden" name="subject" value="ToolCraft Contact Form"/>
+    <input type="hidden" name="from_name" value="ToolCraft Website"/>
+    <input type="checkbox" name="botcheck" style="display:none"/>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="cf-name">Your Name</label>
+        <input class="form-input" type="text" id="cf-name" name="name" placeholder="Jane Smith" required/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cf-email">Your Email</label>
+        <input class="form-input" type="email" id="cf-email" name="email" placeholder="jane@example.com" required/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="cf-subject">Subject</label>
+      <select class="form-input" id="cf-subject" name="subject_type">
+        <option value="Tool Suggestion">Tool Suggestion</option>
+        <option value="Bug Report">Bug Report</option>
+        <option value="General Enquiry">General Enquiry</option>
+        <option value="Collaboration">Collaboration</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="cf-message">Message</label>
+      <textarea class="form-input" id="cf-message" name="message" rows="6" placeholder="Tell us what's on your mind…" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit" id="cf-submit">Send Message &#8594;</button>
+
+    <div class="success-msg" id="cf-success">
+      &#10003; &nbsp; Message sent successfully! We'll get back to you within 48 hours.
+    </div>
+    <div class="error-msg" id="cf-error">
+      Something went wrong. Please try again or reach out through our social channels.
+    </div>
+  </form>
+</div>
+
+<footer>
+  <span>&copy; 2026 ToolCraft &middot; All tools run locally in your browser</span>
+  <span>
+    <a href="/privacy.html">Privacy</a> &middot;
+    <a href="/terms.html">Terms</a> &middot;
+    <a href="/about.html">About</a>
+  </span>
+</footer>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('cf-submit');
+  const success=document.getElementById('cf-success');
+  const error=document.getElementById('cf-error');
+  btn.disabled=true;
+  btn.textContent='Sending…';
+  success.style.display='none';
+  error.style.display='none';
+  try{
+    const formData=new FormData(this);
+    const response=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      body:formData
+    });
+    const data=await response.json();
+    if(data.success){
+      success.style.display='block';
+      this.reset();
+      btn.textContent='Message Sent ✓';
+    }else{
+      throw new Error(data.message);
+    }
+  }catch(err){
+    error.style.display='block';
+    btn.disabled=false;
+    btn.textContent='Send Message →';
+  }
+});
+</script>
+</body>
+</html>
