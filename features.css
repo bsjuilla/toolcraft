@@ -1,0 +1,346 @@
+/* ToolCraft Features CSS */
+
+/* ── DARK MODE ──────────────────────────────────────────────────────────────── */
+body.dark {
+  --bg: #0f0e0d;
+  --surface: #1a1815;
+  --ink: #f0ebe0;
+  --ink-soft: #8a7d6e;
+  --border: #2a2520;
+  --shadow: rgba(0,0,0,0.4);
+}
+body.dark .card-icon { background: var(--surface); color: var(--ink); border: 1px solid var(--border); }
+body.dark input[type=color] { background: var(--surface); }
+body.dark #md-preview { background: var(--surface); }
+
+/* Dark mode toggle button */
+.dark-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: .4rem .7rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  transition: all .2s;
+  line-height: 1;
+}
+.dark-toggle:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* ── FAVOURITES ──────────────────────────────────────────────────────────────── */
+.fav-btn {
+  position: absolute;
+  top: .7rem;
+  right: .7rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--border);
+  transition: color .2s, transform .15s;
+  line-height: 1;
+  padding: .2rem;
+  z-index: 2;
+}
+.fav-btn:hover { transform: scale(1.2); }
+.fav-btn.active { color: #e67e22; }
+.tool-card { position: relative; }
+
+/* Favourites section */
+.favs-section {
+  padding: 0 3rem 1.5rem;
+  display: none;
+}
+.favs-section.visible { display: block; }
+.favs-label {
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .8rem;
+}
+.favs-strip {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.fav-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: .35rem .85rem;
+  font-size: .78rem;
+  cursor: pointer;
+  color: var(--ink-soft);
+  transition: all .2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.fav-chip:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* ── RECENTLY USED ───────────────────────────────────────────────────────────── */
+.recent-section {
+  padding: 0 3rem 1.5rem;
+  display: none;
+}
+.recent-section.visible { display: block; }
+.recent-label {
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: .8rem;
+}
+.recent-strip {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.recent-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: .35rem .85rem;
+  font-size: .78rem;
+  cursor: pointer;
+  color: var(--ink-soft);
+  transition: all .2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.recent-chip:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.recent-chip::before { content: '↺ '; font-size: .7rem; }
+
+/* ── TOOL COUNT BADGES ───────────────────────────────────────────────────────── */
+.tab-count {
+  display: inline-block;
+  background: var(--border);
+  color: var(--ink-soft);
+  font-size: .6rem;
+  border-radius: 10px;
+  padding: .05rem .4rem;
+  margin-left: .3rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.nav-tab.on .tab-count { background: rgba(255,255,255,.2); color: var(--bg); }
+
+/* ── TOOL DESCRIPTIONS ───────────────────────────────────────────────────────── */
+.tool-desc {
+  font-size: .75rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  padding: .6rem 0 .2rem;
+  border-top: 1px solid var(--border);
+  margin-top: .8rem;
+}
+
+/* ── SHARE BUTTON ────────────────────────────────────────────────────────────── */
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  margin-top: .75rem;
+  padding: .45rem .85rem;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .2s;
+}
+.share-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.share-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--ink);
+  color: var(--bg);
+  padding: .65rem 1.4rem;
+  border-radius: 4px;
+  font-size: .82rem;
+  font-family: 'DM Sans', sans-serif;
+  opacity: 0;
+  transition: opacity .3s, transform .3s;
+  pointer-events: none;
+  z-index: 10000;
+  white-space: nowrap;
+}
+.share-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── SUGGEST A TOOL ──────────────────────────────────────────────────────────── */
+.suggest-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0 3rem 1.5rem;
+  padding: .65rem 1.3rem;
+  background: var(--surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .2s;
+}
+.suggest-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,22,18,.6);
+  z-index: 9998;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2rem;
+  max-width: 460px;
+  width: 100%;
+  animation: fadeUp .25s ease;
+}
+.modal h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
+}
+.modal p { font-size: .85rem; color: var(--ink-soft); margin-bottom: 1.2rem; }
+.modal input, .modal textarea, .modal select {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .68rem .9rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  color: var(--ink);
+  outline: none;
+  margin-bottom: .8rem;
+  transition: border-color .2s;
+}
+.modal input:focus, .modal textarea:focus { border-color: var(--ink); }
+.modal textarea { resize: vertical; min-height: 80px; }
+.modal-btns { display: flex; gap: .6rem; justify-content: flex-end; margin-top: .4rem; }
+.modal-cancel {
+  padding: .58rem 1.1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  color: var(--ink-soft);
+  transition: all .2s;
+}
+.modal-cancel:hover { border-color: var(--ink); color: var(--ink); }
+.modal-submit {
+  padding: .58rem 1.3rem;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  transition: background .2s;
+}
+.modal-submit:hover { background: var(--accent); }
+.modal-success { color: #1a7a4a; font-size: .85rem; display: none; margin-top: .5rem; }
+
+/* ── USAGE COUNTER ───────────────────────────────────────────────────────────── */
+.usage-count {
+  font-size: .68rem;
+  color: var(--ink-soft);
+  letter-spacing: .05em;
+  margin-top: .4rem;
+  display: block;
+}
+.usage-count strong { color: var(--ink); font-weight: 500; }
+
+/* ── TOOL OF THE DAY ─────────────────────────────────────────────────────────── */
+.totd-banner {
+  margin: 0 3rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: .9rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.totd-left { display: flex; align-items: center; gap: .8rem; }
+.totd-label {
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.totd-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.totd-btn {
+  padding: .4rem .9rem;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  border-radius: 3px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.totd-btn:hover { background: var(--accent); }
+
+/* ── KEYBOARD SHORTCUT HINT ──────────────────────────────────────────────────── */
+.kbd-hint {
+  position: absolute;
+  right: .8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: .65rem;
+  color: var(--ink-soft);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: .1rem .4rem;
+  pointer-events: none;
+  letter-spacing: .05em;
+}
+.search-box { position: relative; }
+
+@media(max-width:640px) {
+  .favs-section, .recent-section, .suggest-btn { padding-left: 1.2rem; padding-right: 1.2rem; margin-left: 0; margin-right: 0; }
+  .totd-banner { margin-left: 1.2rem; margin-right: 1.2rem; }
+}
