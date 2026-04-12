@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "ToolCraft — Free Browser Tools",
+  "version": "1.0.0",
+  "description": "Quick access to 67 free browser tools. Password generator, unit converter, QR codes, word counter and more — right from your toolbar.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ToolCraft Tools",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": ["clipboardWrite", "storage"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ToolCraft — Embedded Tool</title>
+<link rel="icon" type="image/jpeg" href="/favicon.jpg"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f5f0e8;--surface:#faf7f2;--ink:#1a1612;--ink-soft:#5a4e42;--accent:#c0392b;--border:#d4c9b8;--shadow:rgba(26,22,18,.08);--green:#1a7a4a}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;display:flex;flex-direction:column}
+
+.embed-header{padding:.75rem 1.2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.embed-logo{text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.embed-logo-name{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;letter-spacing:-.3px;color:var(--ink)}
+.embed-logo-tag{font-size:.55rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.embed-open{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border:1px solid var(--border);padding:.3rem .7rem;border-radius:2px;transition:all .2s}
+.embed-open:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.tool-container{flex:1;padding:1.2rem}
+
+/* Card styles */
+textarea,input[type=text],input[type=number],input[type=date],input[type=email],select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.65rem .85rem;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;resize:vertical}
+textarea:focus,input:focus,select:focus{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;margin-top:.7rem;padding:.55rem 1.1rem;background:var(--ink);color:var(--bg);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
+.btn-ghost:hover{background:var(--bg);border-color:var(--ink)}
+.btn-row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.result-box{margin-top:.8rem;padding:.8rem .9rem;background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;font-size:.87rem;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+.result-box.hidden{display:none}
+.input-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.25rem;display:block;margin-top:.55rem}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
+.stat-row{display:flex;gap:.6rem;margin-top:.7rem;flex-wrap:wrap}
+.stat-chip{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.35rem .7rem;font-size:.75rem;font-weight:500}
+.stat-chip span{font-weight:300;color:var(--ink-soft);margin-right:.25rem}
+.strength-bar{height:4px;border-radius:2px;background:var(--border);margin-top:.5rem;overflow:hidden}
+.strength-fill{height:100%;border-radius:2px;transition:width .3s,background .3s}
+.copied{color:var(--green);font-size:.73rem;margin-left:.4rem;opacity:0;transition:opacity .3s}
+.copied.show{opacity:1}
+.tool-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:.3rem}
+.tool-sub{font-size:.75rem;color:var(--ink-soft);margin-bottom:.9rem}
+.not-found{text-align:center;padding:3rem 1rem;color:var(--ink-soft)}
+.not-found a{color:var(--accent)}
+
+.embed-footer{padding:.5rem 1.2rem;border-top:1px solid var(--border);text-align:center;font-size:.65rem;color:var(--ink-soft)}
+.embed-footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="embed-header">
+  <a href="https://toolcraft.online" target="_blank" class="embed-logo">
+    <span class="embed-logo-name">ToolCraft</span>
+    <span class="embed-logo-tag">Free Tools</span>
+  </a>
+  <a href="https://toolcraft.online" target="_blank" class="embed-open">Open full site →</a>
+</div>
+
+<div class="tool-container" id="tool-container">
+  <div class="not-found">Loading tool…</div>
+</div>
+
+<div class="embed-footer">
+  Powered by <a href="https://toolcraft.online" target="_blank">ToolCraft</a> — 67 free browser tools
+</div>
+
+<script>
+// ── TOOL REGISTRY ─────────────────────────────────────────────────────────────
+const TOOLS = {
+  'word-counter': {
+    title: 'Word Counter',
+    sub: 'Words, chars, sentences & reading time',
+    html: `<textarea id="wc" rows="6" placeholder="Paste or type text here…" oninput="wc()"></textarea>
+      <div class="stat-row">
+        <div class="stat-chip"><span>Words</span><strong id="ww">0</strong></div>
+        <div class="stat-chip"><span>Chars</span><strong id="wc2">0</strong></div>
+        <div class="stat-chip"><span>Read</span><strong id="wr">0s</strong></div>
+      </div>`,
+    init: function() {
+      window.wc = function() {
+        const t = document.getElementById('wc').value;
+        const words = t.trim() === '' ? 0 : t.trim().split(/\s+/).length;
+        const rs = Math.round(words/200*60);
+        document.getElementById('ww').textContent = words;
+        document.getElementById('wc2').textContent = t.length;
+        document.getElementById('wr').textContent = rs < 60 ? rs+'s' : Math.round(rs/60)+'m';
+      };
+    }
+  },
+  'password-generator': {
+    title: 'Password Generator',
+    sub: 'Cryptographically secure passwords',
+    html: `<label class="input-label">Length: <strong id="pl">16</strong></label>
+      <input type="range" min="8" max="64" value="16" oninput="document.getElementById('pl').textContent=this.value;gp()" style="width:100%;accent-color:#1a1612;margin-bottom:.6rem"/>
+      <div class="result-box" id="pr" style="font-family:monospace"></div>
+      <div class="strength-bar"><div class="strength-fill" id="psf" style="width:0%"></div></div>
+      <div class="btn-row">
+        <button class="btn" onclick="gp()">↻ New</button>
+        <button class="btn btn-ghost" onclick="navigator.clipboard.writeText(document.getElementById('pr').textContent)">Copy</button>
+      </div>`,
+    init: function() {
+      window.gp = function() {
+        const len = +document.querySelector('input[type=range]').value;
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}';
+        const arr = new Uint32Array(len); crypto.getRandomValues(arr);
+        const pw = [...arr].map(v=>chars[v%chars.length]).join('');
+        document.getElementById('pr').textContent = pw;
+        const score = Math.min(4,[len>=12,len>=20,/[A-Z]/.test(pw),/[a-z]/.test(pw),/[0-9]/.test(pw),/[^A-Za-z0-9]/.test(pw)].filter(Boolean).length);
+        const fill = document.getElementById('psf');
+        fill.style.width=(score/4*100)+'%';
+        fill.style.background=['#e74c3c','#e67e22','#f1c40f','#2ecc71','#1abc9c'][score];
+      };
+      window.gp();
+    }
+  },
+  'bmi-calculator': {
+    title: 'BMI Calculator',
+    sub: 'Body Mass Index',
+    html: `<div class="input-row">
+        <div><label class="input-label">Weight (kg)</label><input type="number" id="bw" placeholder="70" oninput="bmi()"/></div>
+        <div><label class="input-label">Height (cm)</label><input type="number" id="bh" placeholder="175" oninput="bmi()"/></div>
+      </div>
+      <div class="result-box hidden" id="br"></div>`,
+    init: function() {
+      window.bmi = function() {
+        const w=parseFloat(document.getElementById('bw').value);
+        const h=parseFloat(document.getElementById('bh').value)/100;
+        const res=document.getElementById('br');
+        if(!w||!h){res.classList.add('hidden');return;}
+        const b=(w/(h*h)).toFixed(1);
+        const cat=b<18.5?'Underweight':b<25?'Normal':b<30?'Overweight':'Obese';
+        res.textContent='BMI: '+b+' — '+cat;res.classList.remove('hidden');
+      };
+    }
+  },
+  'qr-code-generator': {
+    title: 'QR Code Generator',
+    sub: 'Instant QR for any URL or text',
+    html: `<input type="text" id="qi" placeholder="https://example.com" oninput="qr()"/>
+      <div id="qo" style="display:none;margin-top:.8rem;text-align:center">
+        <img id="qimg" style="width:160px;height:160px;border:1px solid #d4c9b8;border-radius:4px;padding:6px;background:#fff"/>
+        <div><a id="qdl" class="btn" style="text-decoration:none;margin-top:.6rem;display:inline-flex" download="qr.png">↓ Download</a></div>
+      </div>`,
+    init: function() {
+      window.qr = function() {
+        const v=document.getElementById('qi').value.trim();
+        const o=document.getElementById('qo');
+        if(!v){o.style.display='none';return;}
+        const url='https://api.qrserver.com/v1/create-qr-code/?size=160x160&data='+encodeURIComponent(v);
+        document.getElementById('qimg').src=url;
+        document.getElementById('qdl').href=url+'&format=png';
+        o.style.display='block';
+      };
+    }
+  },
+  'tip-calculator': {
+    title: 'Tip Calculator',
+    sub: 'Split the bill effortlessly',
+    html: `<label class="input-label">Bill ($)</label>
+      <input type="number" id="tb" placeholder="85.00" oninput="tip()"/>
+      <label class="input-label">Tip: <strong id="tp">15</strong>%</label>
+      <input type="range" min="0" max="30" value="15" oninput="document.getElementById('tp').textContent=this.value;tip()" style="width:100%;accent-color:#1a1612"/>
+      <label class="input-label">Split between</label>
+      <input type="number" id="ts" value="1" min="1" oninput="tip()"/>
+      <div class="result-box hidden" id="tr"></div>`,
+    init: function() {
+      window.tip = function() {
+        const bill=parseFloat(document.getElementById('tb').value);
+        const pct=+document.querySelector('input[type=range]').value;
+        const split=Math.max(1,+document.getElementById('ts').value||1);
+        const res=document.getElementById('tr');
+        if(!bill){res.classList.add('hidden');return;}
+        const t=bill*pct/100;const total=bill+t;
+        res.textContent='Tip: $'+t.toFixed(2)+'\nTotal: $'+total.toFixed(2)+'\nPer person: $'+(total/split).toFixed(2);
+        res.classList.remove('hidden');
+      };
+    }
+  }
+};
+
+// ── RENDER TOOL ───────────────────────────────────────────────────────────────
+const params = new URLSearchParams(window.location.search);
+const toolSlug = params.get('tool') || 'word-counter';
+const tool = TOOLS[toolSlug];
+const container = document.getElementById('tool-container');
+
+if (tool) {
+  container.innerHTML =
+    '<div class="tool-title">' + tool.title + '</div>' +
+    '<div class="tool-sub">' + tool.sub + '</div>' +
+    tool.html;
+  if (tool.init) tool.init();
+} else {
+  container.innerHTML =
+    '<div class="not-found">' +
+      '<p>Tool not found.</p>' +
+      '<p style="margin-top:.5rem"><a href="https://toolcraft.online" target="_blank">Browse all 67 free tools →</a></p>' +
+    '</div>';
+}
+</script>
+</body>
+</html>

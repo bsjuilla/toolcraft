@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+<div class="header">
+  <div class="logo">
+    <span class="logo-name">ToolCraft</span>
+    <span class="logo-tag">Free Tools</span>
+  </div>
+  <input class="search" id="search" type="text" placeholder="Search…" oninput="filterTools()"/>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="setTab('all',this)">All</button>
+  <button class="tab" onclick="setTab('text',this)">Text</button>
+  <button class="tab" onclick="setTab('math',this)">Math</button>
+  <button class="tab" onclick="setTab('dev',this)">Dev</button>
+  <button class="tab" onclick="setTab('gen',this)">Generate</button>
+</div>
+
+<div class="tools" id="tools"></div>
+
+<div class="tool-panel" id="tool-panel" style="display:none">
+  <div class="panel-header">
+    <button class="back-btn" onclick="showList()">← Back</button>
+    <span class="panel-title" id="panel-title"></span>
+    <a class="open-full" id="open-full" href="#" target="_blank">Open full ↗</a>
+  </div>
+  <div class="panel-body" id="panel-body"></div>
+</div>
+
+<div class="footer">
+  <a href="https://toolcraft.online" target="_blank">toolcraft.online</a>
+  <span>67 free tools</span>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
